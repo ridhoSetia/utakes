@@ -354,7 +354,6 @@ footer h2 {
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: space-around;
     background: #feeee7;
     transition: 0.2s;
     width: 15px;
@@ -369,7 +368,7 @@ footer h2 {
     left: 0;
     opacity: 1;
     width: 100%;
-    height: 65vh;
+    height: 420px;
     left: 0;
     right: 0;
     background: rgb(255, 255, 255)
