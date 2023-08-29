@@ -127,7 +127,8 @@ function direct() {
         "c) Vitamin bisa menjadi salah satu usaha untuk mencegah stunting",
         "d) Hanya vitamin D yang berpengaruh",
       ],
-      jawabanBenar: "c) Vitamin bisa menjadi salah satu usaha untuk mencegah stunting",
+      jawabanBenar:
+        "c) Vitamin bisa menjadi salah satu usaha untuk mencegah stunting",
     },
     //   B
     {
@@ -138,8 +139,7 @@ function direct() {
         "c) Menjaga pola tidur yang buruk",
         "d) Makan makanan sayur saja",
       ],
-      jawabanBenar:
-        "a) Selalu mencukupi gizi yang dibutuhkan oleh tubuh",
+      jawabanBenar: "a) Selalu mencukupi gizi yang dibutuhkan oleh tubuh",
     },
     //   C
     {
@@ -162,7 +162,8 @@ function direct() {
         "c) Selama periode emas atau pada 1000 Hari Pertama Kehidupan s/d usia 2 tahun",
         "d) Hanya bisa dicegah sebelum usia 1 tahun",
       ],
-      jawabanBenar: "c) Selama periode emas atau pada 1000 Hari Pertama Kehidupan s/d usia 2 tahun",
+      jawabanBenar:
+        "c) Selama periode emas atau pada 1000 Hari Pertama Kehidupan s/d usia 2 tahun",
     },
     //   E
     {
@@ -230,63 +231,64 @@ function direct() {
         "c) Kesulitan belajar",
         "d) Kemampuan atletik lebih baik",
       ],
-      jawabanBenar:
-        "c) Kesulitan belajar",
+      jawabanBenar: "c) Kesulitan belajar",
     }, // K
     {
       soal: "Untuk mencegah stunting, tidak butuh biaya yang besar, salah satu contoh nya adalah?",
       jawaban: [
-        "a) Konsumsi tempe, tahu, sayur kangkung, nasi, secara teratur",
-        "b) Membeli ayam goreng di pasar",
+        "a) Konsumsi makanan murah yang bermanfaat seperti tempe, tahu, sayur kangkung, dll",
+        "b) Membeli ayam goreng setiap hari di pasar",
         "c) Konsumsi daging, sayur-sayuran, nasi goreng, setiap hari",
         "d) Makan makanan yang murah seperti sosis",
       ],
-      jawabanBenar: "c.	Bhinneka Tunggal Ika",
+      jawabanBenar:
+        "a) Konsumsi makanan murah yang bermanfaat seperti tempe, tahu, sayur kangkung, dll",
     },
     //   L
     {
-      soal: "Bullying yang dilakukan dengan didasari pada prasangka pelaku terhadap seseorang dari ras, agama, atau suku dinamakan?",
+      soal: "Sakit infeksi yang berulang pada anak disebabkan oleh?",
       jawaban: [
-        "a.	Bullying medsos ",
-        "b.	Cyberbullying",
-        "c.	Prejudice bullying",
-        "d.	Cybercrime",
+        "a) Konsumsi makanan berlebihan",
+        "b) Sistem imunitas tubuh yang tidak bekerja secara maksimal",
+        "c) Kekurangan tidur",
+        "d) Terlalu banyak bermain di luar",
       ],
-      jawabanBenar: "c.	Prejudice bullying",
+      jawabanBenar:
+        "b) Sistem imunitas tubuh yang tidak bekerja secara maksimal",
     },
     //   M
     {
-      soal: 'Pada UUD 1945, pasal berapa yang berbunyi "Setiap anak berhak atas kelangsungan hidup, tumbuh, dan berkembang serta berhak atas perlindungan dari kekerasan dan diskriminasi."',
+      soal: "Dalam jangka pendek, dampak stunting adalah?",
       jawaban: [
-        "a.	pasal 28B ayat 2 ",
-        "b.	pasal 27B ayat 2 ",
-        "c.	pasal 28B ayat 1",
-        "d.	pasal 27B ayat 2 ",
+        "a) Kulit menjadi lebih halus",
+        "b) Kekuatan otot meningkat",
+        "c) Terganggunya perkembangan otak, metabolisme, dan pertumbuhan fisik pada anak",
+        "d) Penglihatan lebih baik",
       ],
-      jawabanBenar: "a.	pasal 28B ayat 2 ",
+      jawabanBenar:
+        "c) Terganggunya perkembangan otak, metabolisme, dan pertumbuhan fisik pada anak",
     },
     //   N
     {
-      soal: "Sebagai makhluk sosial, apa yang harus kita lakukan jika kita melihat tindakan bullying di sekitar kita?",
+      soal: "Bagaimana cara mengatasi stunting dimasa kehamilan?",
       jawaban: [
-        "a. Membiarkan bullying terjadi",
-        "b. Ikut membully",
-        "c. Bantu ketawa",
-        "d. Melerai dan melapor kepada orang dewasa",
+        "a) Berpuasa",
+        "b) Berolahraga",
+        "c) Menjaga pola tidur yang buruk",
+        "d) Selalu memenuhi gizi sejak masa kehamilan",
       ],
-      jawabanBenar: "d. Melerai dan melapor kepada orang dewasa",
+      jawabanBenar: "d) Selalu memenuhi gizi sejak masa kehamilan",
     },
     //   O
     {
-      soal: "Kasus bullying atau perundungan terhadap penyandang disabilitas kembali terjadi. Sekelompok remaja berseragam SMA tanpa ampun melakukan kekerasan fisik pada korban. Mereka menekan-nekan punggung korban dengan sepatu, lalu menginjak-injak pundak korban. Berkaitan dengan kasus diatas, apakah itu termasuk Bullying yang berbau SARA?",
+      soal: "Stunting adalah gagal tumbuh akibat kurangnya asupan gizi, berikut makanan apa saja yang dapat menambah gizi?",
       jawaban: [
-        "a. Tidak, karena penyandang disabilitas adalah orang yang sehat",
-        "b. Ya, karena penyandang disabilitas termasuk golongan di dalam SARA",
-        "c. Tidak, karena penyandang disabilitas tidak termasuk golongan di dalam SARA",
-        "d. Ya, karena penyandang disabilitas merupakan orang hebat",
+        "a) Ikan bakar, telur rebus, buah pepaya, dan sayur bayam",
+        "b) Ikan gabus, telur rebus, buah pepaya, dan sayur bayam",
+        "c) ikan gabus, telur mentah, buah alpukat, dan sayur bayam",
+        "d) ikan salmon, telur asin, buat busuk, dan sayur asam",
       ],
-      jawabanBenar:
-        "b. Ya, karena penyandang disabilitas termasuk golongan di dalam SARA",
+      jawabanBenar: "b) Ikan gabus, telur rebus, buah pepaya, dan sayur bayam",
     },
   ];
 
