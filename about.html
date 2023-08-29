@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang TAMAN</title>
+    <link rel="shortcut icon" href="img/icon-taman.png" type="image/x-icon" />
+    <!-- link box icon -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- library goggle font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&family=Lilita+One&family=Poppins&family=Secular+One&display=swap"
+      rel="stylesheet"
+    />
+    <!-- library font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="artikel.css">
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo">
+        <img src="img/logo-taman.png" alt=""
+      /></a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="materi-bullying.html">Materi Bullying</a></li>
+      </ul>
+    </header>
+
+    <!-- about us start -->
+    <section style="margin-top: 20px" class="about" id="about">
+      <div class="about-text">
+        <h2>
+          Assalamualaikum wr. wb. <br />
+          Halo Pahlawan Anti Bullying!
+        </h2>
+        <p>
+          Dalam keberagaman yang kaya di Indonesia, kami, Ridho Setiawan dan Aisyah Meylina Putri,
+          hadir sebagai duta pelajar Sadar Hukum dari MAN 2 Kutai Kartanegara.</p>
+          <p>Kami menyadari bahwa negara kita ini memiliki banyak etnis dan budaya
+          yang beragam, dan hal ini menjadi kekuatan yang luar biasa bagi bangsa
+          kita. Namun, sayangnya, keberagaman ini juga bisa menjadi sumber
+          masalah jika tidak dikelola dengan baik. Terkadang, perbedaan etnis
+          dan budaya ini bisa berujung pada tindakan diskriminasi dan bahkan
+          bullying di lingkungan sekolah.</p>
+          <p>Bullying adalah perilaku yang kejam
+          dan merendahkan seseorang secara fisik, verbal, atau psikologis, yang
+          diarahkan kepada mereka yang dianggap lebih lemah. Kami sangat
+          prihatin dengan hal ini. </p>
+          <p>Karena itulah, kami sebagai calon duta Sadar
+          Hukum ingin memperkenalkan sebuah inisiatif yang menarik, yaitu game
+          berbasis website yang kami sebut TAMAN (Tangga Pertemanan Anti
+          Bullying). </p>
+          <p>Tujuan kami adalah untuk mengedukasi tentang bahaya
+          bullying yang berkaitan dengan SARA di lingkungan sekolah. Website ini
+          akan berisi aplikasi permainan yang seru, pertanyaan seputar anti
+          bullying yang berkaitan dengan SARA, materi yang relevan tentang
+          bullying dan SARA, serta komunitas TAMAN yang akan saling berbagi
+          informasi tentang aplikasi game dan sosialisasi aturan terkait masalah
+          bullying yang berkaitan dengan SARA.</p> 
+          <p>Kami mengundang kalian semua
+          untuk bergabung bersama kami dalam membangun TAMAN ini. Bersama-sama,
+          kita bisa menjaga dan menghargai pertemanan, menjauhkan bullying yang
+          berbau SARA dari lingkungan sekolah kita. Ayo, jadilah bagian dari
+          gerakan ini! Wassalamualaikum wr. wb.</p>
+      </div>
+    </section>
+
+    <section class="menu" id="games">
+        <div class="heading">
+          <span>Pengembang</span>
+          <h2>Website TAMAN</h2>
+        </div>
+  
+        <div class="menu-container">
+          <div class="box">
+            <div class="box-img">
+              <img></img>
+            </div>
+            <h2>Ridho Setiawan dan Aisyah Meylina Putri</h2>
+            <h3>Calon Duta Pelajar Sadar Hukum</h3>
+            <p style="color: #f45050;">MAN 2 KUKAR</p>
+            <i class="bx bx-code"></i>
+          </div>
+    </div>
+  </div>
+  </section>
+
+    <script>
+      const hamburgerMenu = document.querySelector("#menu-icon");
+      const navbar = document.querySelector(".navbar");
+      const bx = document.querySelector(".bx");
+
+      hamburgerMenu.onclick = () => {
+        navbar.classList.toggle("open");
+        bx.classList.toggle("bx-x");
+      };
+
+      window.onscroll = () => {
+        navbar.classList.remove("open");
+        bx.classList.remove("bx-x");
+      };
+    </script>
+  </body>
+</html>
