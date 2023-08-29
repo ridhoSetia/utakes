@@ -292,7 +292,7 @@ function direct() {
     },
   ];
 
-  videoMateri.src = "Hal yang Harus Kamu Ketahui Tentang BULLYING.mp4";
+  videoMateri.src = "Apa itu Stunting.mp4";
   localStorage.setItem("videoExplain", "videoMateri");
 
   editQuestion.style.display = "none";
@@ -396,7 +396,7 @@ function edit() {
 if (localStorage.getItem("directEditQuestion") === "none") {
   editQuestion.style.display = "none";
   createButton.style.display = "none";
-  videoMateri.src = "Hal yang Harus Kamu Ketahui Tentang BULLYING.mp4";
+  videoMateri.src = "Apa itu Stunting.mp4";
 } else {
   editQuestion.style.display = "block";
   createButton.style.display = "block";
