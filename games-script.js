@@ -18,6 +18,26 @@ function spin() {
 function whoosh() {
   const whoosh = new Audio("sfx/whoosh.mp3");
   whoosh.play();
+  whoosh.currentTime = 0.2;
+  whoosh.volume = 0.5;
+}
+
+const prolog = new Audio("sfx/prolog.mp3");
+function playProlog() {
+  prolog.play();
+}
+function stopProlog() {
+  prolog.pause();
+  prolog.currentTime = 0;
+}
+
+const typing = new Audio("sfx/typing.mp3");
+function playTyping() {
+  typing.play();
+}
+function stopTyping() {
+  typing.pause();
+  typing.currentTime = 0;
 }
 
 const board = document.querySelector(".board");
@@ -282,15 +302,6 @@ for (let q = 0; q < questionInput.length; q++) {
   }
 }
 
-const smooth = document.querySelector(".smooth");
-smooth.onclick = () => {
-  board.style.backgroundImage = "url(img/papanUlarTangga-smooth.png)";
-};
-const height = document.querySelector(".height");
-height.onclick = () => {
-  board.style.backgroundImage = "url(img/papanUlarTangga.png)";
-};
-
 const buttonCloseGame = document.querySelector(".gameShowUlarTangga button");
 const showGame = document.querySelector(".gameShowUlarTangga");
 
@@ -309,7 +320,9 @@ buttonCloseGame.onclick = () => {
   showGame.classList.remove("active");
   document.querySelector("html").classList.remove("showEdit");
 
-  document.querySelector(".box-panduan").classList.toggle("active");
+  boxPanduan.forEach((boxPanduan) => {
+    boxPanduan.classList.add("active");
+  });
   document.querySelector("html").classList.toggle("showEdit");
 
   // Menyimpan status pengaturan ke localStorage
@@ -337,12 +350,18 @@ radioPickButtons.forEach((radioPickButtons) => {
   });
 });
 
-const faBook = document.querySelector(".fa-book");
-faBook.onclick = () => {
-  document.querySelector(".box-panduan").classList.toggle("active");
-  document.querySelector("html").classList.toggle("showEdit");
-  whoosh();
-};
+const faBook = document.querySelectorAll(".fa-book");
+const boxPanduan = document.querySelectorAll(".box-panduan");
+
+faBook.forEach((faBook) => {
+  faBook.onclick = () => {
+    boxPanduan.forEach((boxPanduan) => {
+      boxPanduan.classList.toggle("active");
+    });
+    document.querySelector("html").classList.toggle("showEdit");
+    whoosh();
+  };
+});
 
 const videoExplain = document.querySelector(".video-explain video");
 const mulai = document.querySelector(".mulai");
@@ -363,7 +382,86 @@ belum.onclick = () => {
 };
 
 mulai.onclick = () => {
-  playBacksoundMusic();
+  const pakEdiProlog = document.querySelector(".pakEdi-prolog");
+  pakEdiProlog.style.display = "flex";
+  const next = document.querySelector(".next");
+  let textProlog = document.querySelector(".text-prolog p mark");
+  let countNext = 0;
+  let typed;
+
+  playProlog();
+
+  function Next() {
+    next.classList.add("active");
+  }
+  function stopNext() {
+    next.classList.remove("active");
+  }
+  playTyping();
+  // Setup and start animation!
+  typed = new Typed(textProlog, {
+    strings: [
+      `Kabupaten Kutai Kartanegara, merupakan sebuah daerah yang indah di negara Indonesia, memiliki beragam budaya, bahasa, suku, dan objek wisata. Namun, saat ini daerah ini sedang menghadapi masalah serius, yaitu masalah stunting. Stunting adalah kondisi ketika anak-anak mengalami pertumbuhan fisik yang terhambat akibat kurangnya gizi. Saat ini, banyak anak di Kutai Kartanegara mengalami stunting, ditahun 2022 angka prevalensi stunting memiliki rata-rata 27,1%, dan ini menjadi ancaman serius bagi masa depan mereka.`,
+    ],
+    typeSpeed: 10,
+    onComplete: () => {
+      // Tampilkan alert setelah efek pengetikan selesai
+      Next();
+      stopTyping();
+    },
+  });
+  next.onclick = () => {
+    playTyping();
+    countNext++;
+    if (countNext === 1) {
+      typed.destroy(); // Hentikan animasi Typed.js sebelum membuat yang baru
+      stopNext();
+      typed = new Typed(textProlog, {
+        strings: [
+          `Pemerintah Kabupaten (Pemkab) Kutai Kartanegara (Kukar) telah membentuk Tim Percepatan Penurunan Stunting (TPPS) Periode 2022-2025 dan telah menetapkan desa/kelurahan lokasi lokus intervensi tahun 2022 pencegahan dan penanganan stunting terintegrasi.
+          <br>Pada tahun 2022, Pemkab Kukar mempunyai target prevalensi stunting pada tahun 2022 sebanyak 21,89 persen, tahun 2023 di angka 18.13 persen, dan tahun 2024 di angka 14.42 persen.`,
+        ],
+        typeSpeed: 10,
+        onComplete: () => {
+          Next();
+          stopTyping();
+        },
+      });
+    } else if (countNext === 2) {
+      typed.destroy();
+      stopNext();
+      typed = new Typed(textProlog, {
+        strings: [
+          `Kalian adalah seorang pejuang kesehatan masyarakat yang telah dipanggil untuk membantu mengatasi masalah stunting di daerah ini. Didalam game kali ini, kalian ditugaskan untuk:<br> 
+          <i>1. Menjawab tantangan berupa soal tentang stunting,</i> hal ini bertujuan untuk mengetahui seberapa jauh dan pantas kah pemahaman kalian untuk mengatasi masalah stunting ini<br>
+          <i>2. Mencapai garis finish,</i> dengan tercapainya tujuan sampai garis finish, maka akan memperlihatkan hasil dari jawaban kalian yang bisa kalian jadikan pembelajaran untuk bisa lebih baik lagi dalam memahami stunting`,
+        ],
+        typeSpeed: 10,
+        onComplete: () => {
+          Next();
+          stopTyping();
+        },
+      });
+    } else if (countNext === 3) {
+      typed.destroy();
+      stopNext();
+      typed = new Typed(textProlog, {
+        strings: [
+          `Kalian adalah satu-satunya harapan untuk mengubah nasib anak-anak di Kutai Kartanegara. Apakah kalian siap untuk misi ini? Saat kalian bergerak maju dalam game ini, kalian akan belajar lebih banyak tentang stunting dan upaya-upaya untuk mengatasinya. Kesuksesan kalian akan mengubah masa depan daerah ini. Selamat bermain dan selamatkan masa depan anak-anak Kutai Kartanegara!`,
+        ],
+        typeSpeed: 10,
+        onComplete: () => {
+          Next();
+          stopTyping();
+        },
+      });
+    } else {
+      pakEdiProlog.remove();
+      stopTyping();
+      playBacksoundMusic();
+      stopProlog();
+    }
+  };
   audioOnOff.classList.toggle("fa-volume-mute");
   audioOnOff.classList.toggle("fa-volume-up");
   alertMulai.style.display = "none";
@@ -396,21 +494,6 @@ if (savedremoveBidak === "true") {
   document.querySelector(".video-explain").style.display = savedVideoExplain;
   alertMulai.style.display = "none";
 }
-
-const parentElement = document.querySelector(".flex-point");
-const childElements = Array.from(parentElement.children);
-
-// fungsi untuk mengacak urutan child element secara acak
-function shuffleChildren() {
-  for (let i = childElements.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    parentElement.insertBefore(childElements[j], childElements[i]);
-  }
-}
-
-// // panggil fungsi di atas setiap kali halaman dimuat ulang
-window.onload = shuffleChildren();
-mulai.addEventListener("click", shuffleChildren);
 
 // program reset localStorage
 const setting = document.querySelector(".fa.fa-cog");
@@ -458,235 +541,307 @@ resetGameMode.onclick = () => {
 };
 
 // snake mini games program
-document.addEventListener("DOMContentLoaded", () => {
-  const playBoard = document.querySelector(".play-board");
-  const scoreElement = document.querySelector(".score");
-  const controls = document.querySelectorAll(".controls i");
+const playBoard = document.querySelector(".play-board");
+const scoreElement = document.querySelector(".score");
+const controls = document.querySelectorAll(".controls i");
 
-  const eatSfx = new Audio("sfx/eating-chips.mp3");
-  eatSfx.volume = 0.7;
+const eatSfx = new Audio("sfx/eating-chips.mp3");
+eatSfx.volume = 0.4;
 
-  // Buat sebuah variabel yang menandakan apakah suara sedang dimainkan atau tidak
-  let isSfxPlaying = false;
+// Buat sebuah variabel yang menandakan apakah suara sedang dimainkan atau tidak
+let isSfxPlaying = false;
 
-  // Function untuk memutar suara belok
-  const playEatSfx = () => {
-    if (!isSfxPlaying) {
-      isSfxPlaying = true;
-      eatSfx.currentTime = 0; // Mengembalikan suara ke awal sebelum memutarnya lagi
-      eatSfx.play().then(() => {
-        isSfxPlaying = false; // Mengatur isSfxPlaying menjadi false setelah suara selesai dimainkan
-      });
-    }
-  };
+// Function untuk memutar suara belok
+const playEatSfx = () => {
+  if (!isSfxPlaying) {
+    isSfxPlaying = true;
+    eatSfx.currentTime = 0; // Mengembalikan suara ke awal sebelum memutarnya lagi
+    eatSfx.play().then(() => {
+      isSfxPlaying = false; // Mengatur isSfxPlaying menjadi false setelah suara selesai dimainkan
+    });
+  }
+};
 
-  const turnSfx = new Audio("sfx/belok.mp3");
+const turnSfx = new Audio("sfx/belok.mp3");
 
-  // Function untuk memutar suara belok
-  const playTurnSfx = () => {
-    if (!isSfxPlaying) {
-      isSfxPlaying = true;
-      turnSfx.currentTime = 0; // Mengembalikan suara ke awal sebelum memutarnya lagi
-      turnSfx.play().then(() => {
-        isSfxPlaying = false; // Mengatur isSfxPlaying menjadi false setelah suara selesai dimainkan
-      });
-    }
-  };
+// Function untuk memutar suara belok
+const playTurnSfx = () => {
+  if (!isSfxPlaying) {
+    isSfxPlaying = true;
+    turnSfx.currentTime = 0; // Mengembalikan suara ke awal sebelum memutarnya lagi
+    turnSfx.play().then(() => {
+      isSfxPlaying = false; // Mengatur isSfxPlaying menjadi false setelah suara selesai dimainkan
+    });
+  }
+};
 
-  let gameOver = false;
-  let foodX, foodY;
-  let junkX, junkY;
-  let snakeX = 7,
-    snakeY = 7;
-  let velocityX = 0,
+let gameOver = false;
+let foodX, foodY;
+let junkX, junkY;
+let snakeX = 7,
+  snakeY = 7;
+let velocityX = 0,
+  velocityY = 0;
+let snakeBody = [];
+let setIntervalid;
+let score = 0;
+
+// pass a random between 1 and 30 as food position
+
+const updateFoodPosition = () => {
+  foodX = Math.floor(Math.random() * 15) + 1;
+  foodY = Math.floor(Math.random() * 15) + 1;
+};
+
+const updateJunkPosition = () => {
+  junkX = Math.floor(Math.random() * 15) + 1;
+  junkY = Math.floor(Math.random() * 15) + 1;
+};
+
+const boxHandleGameOver = document.querySelector(".alertGameOver");
+const buttonHandleGameOver = document.querySelector(".boxGameOver button");
+
+const handleGameOver = () => {
+  clearInterval(setIntervalid);
+  boxHandleGameOver.style.display = "flex";
+};
+
+buttonHandleGameOver.onclick = () => {
+  setTimeout(() => {
+    document.querySelector(".alert-bonus").remove();
+  }, 500);
+};
+
+// change velocity value based on key press
+
+const changeDirection = (e) => {
+  if (e.key === "ArrowUp" && velocityY != 1) {
+    velocityX = 0;
+    velocityY = -1;
+    playTurnSfx();
+  } else if (e.key === "ArrowDown" && velocityY != -1) {
+    velocityX = 0;
+    velocityY = 1;
+    playTurnSfx();
+  } else if (e.key === "ArrowLeft" && velocityX != 1) {
+    velocityX = -1;
+    playTurnSfx();
     velocityY = 0;
-  let snakeBody = [];
-  let setIntervalid;
-  let score = 0;
+  } else if (e.key === "ArrowRight" && velocityX != -1) {
+    velocityX = 1;
+    velocityY = 0;
+    playTurnSfx();
+  }
+};
 
-  // pass a random between 1 and 30 as food position
+// change direction on each key click
 
-  const updateFoodPosition = () => {
-    foodX = Math.floor(Math.random() * 15) + 1;
-    foodY = Math.floor(Math.random() * 15) + 1;
-  };
+controls.forEach((button) =>
+  button.addEventListener("click", () =>
+    changeDirection({
+      key: button.dataset.key,
+    })
+  )
+);
 
-  const updateJunkPosition = () => {
-    junkX = Math.floor(Math.random() * 15) + 1;
-    junkY = Math.floor(Math.random() * 15) + 1;
-  };
+let randomJunk1 = Math.floor(Math.random() * 2) + 2; // Rentang: 2 - 3
+let randomJunk2 = Math.floor(Math.random() * 2) + 4; // Rentang: 4 - 5
+let randomJunk3 = Math.floor(Math.random() * 2) + 6; // Rentang: 6 - 7
+let randomJunk4 = Math.floor(Math.random() * 2) + 8; // Rentang: 8 - 9
+let randomJunk5 = Math.floor(Math.random() * 2) + 10; // Rentang: 10 - 11
 
-  const boxHandleGameOver = document.querySelector(".alertGameOver");
-  const buttonHandleGameOver = document.querySelector(".boxGameOver button");
+console.log(randomJunk1);
+console.log(randomJunk2);
+console.log(randomJunk3);
+console.log(randomJunk4);
+console.log(randomJunk5);
 
-  const handleGameOver = () => {
-    clearInterval(setIntervalid);
-    boxHandleGameOver.style.display = "flex";
-  };
+let html2 = ""; // Initialize html2 as an empty string
 
-  buttonHandleGameOver.onclick = () => {
+const showFood = document.querySelector(".show-food");
+
+let gizi = [`gizi1`, `gizi2`, `gizi3`, `gizi4`, `gizi5`, `gizi6`, `gizi7`];
+let nGizi = [`junk1`, `junk2`, `junk3`, `junk4`, `junk5`];
+
+let randomFood = Math.floor(Math.random() * gizi.length);
+
+let randomJunk = Math.floor(Math.random() * nGizi.length);
+
+const boxGame = document.querySelector(".boxGameOver h3");
+
+const initGame = () => {
+  if (gameOver) return handleGameOver();
+
+  let html = `<div class="food" style="grid-area: ${foodY} / ${foodX}; background-image: url(img/${gizi[randomFood]}.jpeg)"></div>`;
+
+  //  when snake eat food
+  if (snakeX === foodX && snakeY === foodY) {
+    updateFoodPosition();
+    updateJunkPosition();
+
+    showFood.style.backgroundImage = `url(img/${gizi[randomFood]}.jpeg)`;
+
+    showFood.classList.add("on");
     setTimeout(() => {
-      document.querySelector(".alert-bonus").remove();
-    }, 500);
-  };
+      showFood.classList.remove("on");
+    }, 400);
 
-  // change velocity value based on key press
+    randomFood = Math.floor(Math.random() * gizi.length);
 
-  const changeDirection = (e) => {
-    if (e.key === "ArrowUp" && velocityY != 1) {
-      velocityX = 0;
-      velocityY = -1;
-      playTurnSfx();
-    } else if (e.key === "ArrowDown" && velocityY != -1) {
-      velocityX = 0;
-      velocityY = 1;
-      playTurnSfx();
-    } else if (e.key === "ArrowLeft" && velocityX != 1) {
-      velocityX = -1;
-      playTurnSfx();
-      velocityY = 0;
-    } else if (e.key === "ArrowRight" && velocityX != -1) {
-      velocityX = 1;
-      velocityY = 0;
-      playTurnSfx();
-    }
-  };
-
-  // change direction on each key click
-
-  controls.forEach((button) =>
-    button.addEventListener("click", () =>
-      changeDirection({
-        key: button.dataset.key,
-      })
-    )
-  );
-
-  let randomJunk1 = Math.floor(Math.random() * 2) + 2; // Rentang: 2 - 3
-  let randomJunk2 = Math.floor(Math.random() * 2) + 4; // Rentang: 4 - 5
-  let randomJunk3 = Math.floor(Math.random() * 2) + 6; // Rentang: 6 - 7
-  let randomJunk4 = Math.floor(Math.random() * 2) + 8; // Rentang: 8 - 9
-  let randomJunk5 = Math.floor(Math.random() * 2) + 10; // Rentang: 10 - 11
-
-  console.log(randomJunk1);
-  console.log(randomJunk2);
-  console.log(randomJunk3);
-  console.log(randomJunk4);
-  console.log(randomJunk5);
-
-  let html2 = ""; // Initialize html2 as an empty string
-
-  const showFood = document.querySelector(".show-food");
-
-  let gizi = [`gizi1`, `gizi2`, `gizi3`, `gizi4`, `gizi5`, `gizi6`, `gizi7`];
-  let nGizi = [`junk1`, `junk2`, `junk3`, `junk4`, `junk5`];
-
-  let randomFood = Math.floor(Math.random() * gizi.length);
-
-  let randomJunk = Math.floor(Math.random() * nGizi.length);
-
-  const boxGame = document.querySelector(".boxGameOver h3");
-
-  const initGame = () => {
-    if (gameOver) return handleGameOver();
+    randomJunk = Math.floor(Math.random() * nGizi.length);
 
     let html = `<div class="food" style="grid-area: ${foodY} / ${foodX}; background-image: url(img/${gizi[randomFood]}.jpeg)"></div>`;
+    console.log("Updated HTML:", html); // Log the updated HTML
 
-    //  when snake eat food
-    if (snakeX === foodX && snakeY === foodY) {
-      updateFoodPosition();
-      updateJunkPosition();
+    snakeBody.push([foodY, foodX]); // add food to snake body array
+    score++;
 
-      showFood.style.backgroundImage = `url(img/${gizi[randomFood]}.jpeg)`;
+    playEatSfx();
 
-      showFood.classList.add("on");
-      setTimeout(() => {
-        showFood.classList.remove("on");
-      }, 400);
+    scoreElement.innerText = `${score}`;
+  }
 
-      randomFood = Math.floor(Math.random() * gizi.length);
+  // Update Snake Head
+  snakeX += velocityX;
+  snakeY += velocityY;
 
-      randomJunk = Math.floor(Math.random() * nGizi.length);
+  // Shifting forward values of elements in snake body by one
 
-      console.log("New randomFood:", randomFood); // Log the new randomFood value
+  for (let i = snakeBody.length - 1; i > 0; i--) {
+    snakeBody[i] = snakeBody[i - 1];
+  }
 
-      html = `<div class="food" style="grid-area: ${foodY} / ${foodX}; background-image: url(img/${gizi[randomFood]}.jpeg)"></div>`;
-      console.log("Updated HTML:", html); // Log the updated HTML
+  snakeBody[0] = [snakeX, snakeY];
 
-      snakeBody.push([foodY, foodX]); // add food to snake body array
-      score++;
+  // check snake body is out of wall or no
+  // if it comes out, it will appear again on the opposite fence
 
-      playEatSfx();
+  if (snakeX <= 0 || snakeX > 15 || snakeY <= 0 || snakeY > 15) {
+    return (gameOver = true);
+  }
 
-      scoreElement.innerText = `${score}`;
+  if (snakeBody.length == 11) {
+    setTimeout(() => {
+      handleGameOver();
+      boxGame.textContent = "Bagus! Gizi Kamu Terpenuhi";
+      document.querySelector(".boxGameOver p").textContent = "Maju 3 Langkah!";
+    }, 100);
+  }
+
+  // add div for each part of snake body
+  for (let i = 0; i < snakeBody.length; i++) {
+    if (
+      i !== 0 &&
+      snakeBody[0][1] === snakeBody[i][1] &&
+      snakeBody[0][0] === snakeBody[i][0]
+    ) {
+      gameOver = true; // Collision with self ends the game
     }
 
-    // Update Snake Head
-    snakeX += velocityX;
-    snakeY += velocityY;
-
-    // Shifting forward values of elements in snake body by one
-
-    for (let i = snakeBody.length - 1; i > 0; i--) {
-      snakeBody[i] = snakeBody[i - 1];
-    }
-
-    snakeBody[0] = [snakeX, snakeY];
-
-    // check snake body is out of wall or no
-    // if it comes out, it will appear again on the opposite fence
-
-    if (snakeX <= 0 || snakeX > 15 || snakeY <= 0 || snakeY > 15) {
+    if (snakeX === junkX && snakeY === junkY) {
+      boxGame.textContent = "Pilih Makanan Yang Bener Ya!";
       return (gameOver = true);
     }
 
-    if (snakeBody.length == 11) {
-      setTimeout(() => {
-        handleGameOver();
-        boxGame.textContent = "Bagus! Gizi Kamu Terpenuhi";
-        document.querySelector(".boxGameOver p").textContent =
-          "Maju 3 Langkah!";
-      }, 100);
+    if (
+      snakeBody.length == randomJunk1 ||
+      snakeBody.length == randomJunk2 ||
+      snakeBody.length == randomJunk3 ||
+      snakeBody.length == randomJunk4 ||
+      snakeBody.length == randomJunk5
+    ) {
+      html2 = `<div class="junk" style="grid-area: ${junkY} / ${junkX}; background-image: url(img/${nGizi[randomJunk]}.jpeg);"></div>`;
+      html += html2;
+    } else {
+      html2 = `<div class="junk" style="grid-area: ${0} / ${0}"></div>`;
+    }
+    if (foodX == junkX && foodY == junkY) {
+      updateFoodPosition();
     }
 
-    // add div for each part of snake body
-    for (let i = 0; i < snakeBody.length; i++) {
-      if (
-        i !== 0 &&
-        snakeBody[0][1] === snakeBody[i][1] &&
-        snakeBody[0][0] === snakeBody[i][0]
-      ) {
-        gameOver = true; // Collision with self ends the game
-      }
+    html += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
+  }
+  console.log(html2);
 
-      if (
-        snakeBody.length == randomJunk1 ||
-        snakeBody.length == randomJunk2 ||
-        snakeBody.length == randomJunk3 ||
-        snakeBody.length == randomJunk4 ||
-        snakeBody.length == randomJunk5
-      ) {
-        if (snakeX === junkX && snakeY === junkY) {
-          boxGame.textContent = "Pilih Makanan Yang Bener Ya!";
-          return (gameOver = true);
-        }
-        html2 = `<div class="junk" style="grid-area: ${junkY} / ${junkX}; background-image: url(img/${nGizi[randomJunk]}.jpeg);"></div>`;
-        html += html2;
-      } else {
-        html2 = `<div class="junk" style="grid-area: ${0} / ${0}"></div>`;
-      }
-      if (foodX == junkX && foodY == junkY) {
-        updateFoodPosition();
-      }
+  playBoard.innerHTML = html;
+};
 
-      html += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
+function rollTurn() {
+  return Math.floor(Math.random() * words.length);
+}
+
+const pemain = document.querySelector(".pemain");
+
+function turnPlayer() {
+  // Mengulangi animasi dadu selama 108 frame dengan interval 50 ms
+  var frames = 72;
+  var interval = 60;
+  var currentFrame = 0;
+  var rollInterval = setInterval(function () {
+    // Mengubah gambar dadu secara acak setiap frame
+    var value = rollTurn();
+    pemain.textContent = words[value];
+
+    console.log(words[value]);
+    // Meningkatkan frame saat ini
+    currentFrame++;
+
+    // Menghentikan animasi setelah 108 frame
+    if (currentFrame === frames) {
+      clearInterval(rollInterval);
+      pemain.classList.add("on");
     }
-    console.log(html2);
+  }, interval);
+}
 
-    playBoard.innerHTML = html;
-  };
+let diceClickCount = 0;
 
-  updateFoodPosition();
-  setIntervalid = setInterval(initGame, 160);
-  document.addEventListener("keyup", changeDirection);
-});
+let randomBonus = Math.floor(Math.random() * (30 - 20 + 1)) + 20;
+
+console.log(randomBonus);
+
+const panduanMiniGames = document.querySelector(".panduan-mini-games");
+const panduanDiterima = document.querySelector(".panduan-diterima");
+
+panduanDiterima.onclick = () => {
+  panduanMiniGames.remove();
+  panduanDiterima.remove();
+  document.querySelector(".img-panduan h1").remove();
+};
+
+function pickRollDice() {
+  klik();
+
+  diceClickCount++;
+
+  if (diceClickCount == randomBonus) {
+    document.querySelector(".alert-bonus").style.display = "flex";
+
+    setTimeout(() => {
+      turnPlayer();
+    }, 3000);
+
+    setTimeout(() => {
+      document.querySelector(".mini-games").classList.add("on");
+      updateFoodPosition();
+      setIntervalid = setInterval(initGame, 170);
+      document.addEventListener("keyup", changeDirection);
+    }, 10000);
+  }
+
+  if (currentWordIndex >= words.length) {
+    currentWordIndex = 0;
+  }
+  if (currentColorIndex >= color.length) {
+    currentColorIndex = 0;
+  }
+
+  rollButton.innerHTML = words[currentWordIndex];
+  rollButton.style.background = color[currentColorIndex];
+
+  currentWordIndex++;
+  currentColorIndex++;
+
+  localStorage.setItem("currentWordIndex", currentWordIndex);
+  localStorage.setItem("currentColorIndex", currentColorIndex);
+}

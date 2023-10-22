@@ -16,7 +16,7 @@
       name="author"
       content="Ridho Setiawan, Faris Fadillah, Sofia Novebri Gittalia, Riani, Leni"
     />
-    <title>games</title>
+    <title>UTAKES game</title>
     <link rel="shortcut icon" href="img/icon-utakes.png" type="image/x-icon" />
     <!-- library slick slider (css) -->
     <link
@@ -36,6 +36,7 @@
       href="https://fonts.googleapis.com/css2?family=Acme&family=Lilita+One&family=Poppins&family=Secular+One&display=swap"
       rel="stylesheet"
     />
+
     <!-- library font awesome -->
     <link
       rel="stylesheet"
@@ -145,7 +146,7 @@
           <li>Klik nama pemain untuk melempar dadu</li>
           <br />
           <li>
-            Jika pemain menginjak nomor pertanyaan (nomor warna kuning:
+            Jika pemain menginjak titik pertanyaan (titik hitam kuning:
             <a
               style="
                 background: #333;
@@ -153,19 +154,19 @@
                 border-radius: 50%;
                 padding: 2px 8px;
               "
-              >2</a
-            >). Maka, ia berhak untuk membuka kotak pertanyaan lalu memilih
-            nomor pertanyaan
+              >?</a
+            >). Maka, ia berhak untuk menjawab pertanyaan
           </li>
           <img src="img/buka-jawaban.png" alt="buka jawaban" /><img
             class="imgPilih"
-            src="img/pilihan-pertanyaan.png"
-            alt="pilih pertanyaan"
-          /><img class="imgPilih" src="img/jawab-soal.png" alt="jawab soal" />
+            src="img/jawab-soal.png"
+            alt="jawab soal"
+          />
           <li>
             pertanyaan hanya dapat dibuka jika pemain berjalan setelah melempar
             dadu
           </li>
+          <br />
           <li>Setiap soal berdurasi 40 detik</li>
           <br />
           <li>
@@ -345,7 +346,7 @@
                 <div class="removeVideo">X</div>
               </div>
               <label for="question"
-                >pertanyaan A :
+                >pertanyaan 1 :
                 <textarea name="pertanyaan" data-question="0"></textarea>
                 <label for="option">
                   <p>
@@ -386,7 +387,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan B :
+                >pertanyaan 2 :
                 <textarea name="pertanyaan" data-question="1"></textarea>
                 <label for="option">
                   <p>
@@ -427,7 +428,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan C :
+                >pertanyaan 3 :
                 <textarea name="pertanyaan" data-question="2"></textarea>
                 <label for="option">
                   <p>
@@ -468,7 +469,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan D :
+                >pertanyaan 4 :
                 <textarea name="pertanyaan" data-question="3"></textarea>
                 <label for="option">
                   <p>
@@ -509,7 +510,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan E :
+                >pertanyaan 5 :
                 <textarea name="pertanyaan" data-question="4"></textarea>
                 <label for="option">
                   <p>
@@ -550,7 +551,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan F :
+                >pertanyaan 6 :
                 <textarea name="pertanyaan" data-question="5"></textarea>
                 <label for="option">
                   <p>
@@ -591,7 +592,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan G :
+                >pertanyaan 7 :
                 <textarea name="pertanyaan" data-question="6"></textarea>
                 <label for="option">
                   <p>
@@ -632,7 +633,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan H :
+                >pertanyaan 8 :
                 <textarea name="pertanyaan" data-question="7"></textarea>
                 <label for="option">
                   <p>
@@ -673,7 +674,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan I :
+                >pertanyaan 9 :
                 <textarea name="pertanyaan" data-question="8"></textarea>
                 <label for="option">
                   <p>
@@ -714,7 +715,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan J :
+                >pertanyaan 10 :
                 <textarea name="pertanyaan" data-question="9"></textarea>
                 <label for="option">
                   <p>
@@ -755,7 +756,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan K :
+                >pertanyaan 11 :
                 <textarea name="pertanyaan" data-question="10"></textarea>
                 <label for="option">
                   <p>
@@ -796,7 +797,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan L :
+                >pertanyaan 12 :
                 <textarea name="pertanyaan" data-question="11"></textarea>
                 <label for="option">
                   <p>
@@ -837,7 +838,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan M :
+                >pertanyaan 13 :
                 <textarea name="pertanyaan" data-question="12"></textarea>
                 <label for="option">
                   <p>
@@ -878,7 +879,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan N :
+                >pertanyaan 14 :
                 <textarea name="pertanyaan" data-question="13"></textarea>
                 <label for="option">
                   <p>
@@ -919,7 +920,7 @@
                 </label>
               </label>
               <label for="question"
-                >pertanyaan O :
+                >pertanyaan 15 :
                 <textarea name="pertanyaan" data-question="14"></textarea>
                 <label for="option">
                   <p>
@@ -955,6 +956,621 @@
                   Jawaban yang benar :
                   <input type="text" name="trueOption" data-trueOption="14" />
                   <paste onclick="pasteFromClipboard(14)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 16 :
+                <textarea name="pertanyaan" data-question="15"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option16="0" />
+                    <copy onclick="copyToClipboard(60)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option16="1" />
+                    <copy onclick="copyToClipboard(61)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option16="2" />
+                    <copy onclick="copyToClipboard(62)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option16="3" />
+                    <copy onclick="copyToClipboard(63)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                </label>
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="15" />
+                  <paste onclick="pasteFromClipboard(15)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 17 :
+                <textarea name="pertanyaan" data-question="16"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option17="0" />
+                    <copy onclick="copyToClipboard(64)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option17="1" />
+                    <copy onclick="copyToClipboard(65)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option17="2" />
+                    <copy onclick="copyToClipboard(66)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option17="3" />
+                    <copy onclick="copyToClipboard(67)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                </label>
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="16" />
+                  <paste onclick="pasteFromClipboard(16)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 18 :
+                <textarea name="pertanyaan" data-question="17"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option18="0" />
+                    <copy onclick="copyToClipboard(68)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option18="1" />
+                    <copy onclick="copyToClipboard(69)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option18="2" />
+                    <copy onclick="copyToClipboard(70)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option18="3" />
+                    <copy onclick="copyToClipboard(71)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="17" />
+                  <paste onclick="pasteFromClipboard(17)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 19 :
+                <textarea name="pertanyaan" data-question="18"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option19="0" />
+                    <copy onclick="copyToClipboard(72)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option19="1" />
+                    <copy onclick="copyToClipboard(73)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option19="2" />
+                    <copy onclick="copyToClipboard(74)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option19="3" />
+                    <copy onclick="copyToClipboard(75)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="18" />
+                  <paste onclick="pasteFromClipboard(18)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 20 :
+                <textarea name="pertanyaan" data-question="19"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option20="0" />
+                    <copy onclick="copyToClipboard(76)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option20="1" />
+                    <copy onclick="copyToClipboard(77)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option20="2" />
+                    <copy onclick="copyToClipboard(78)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option20="3" />
+                    <copy onclick="copyToClipboard(79)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="19" />
+                  <paste onclick="pasteFromClipboard(19)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 21 :
+                <textarea name="pertanyaan" data-question="20"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option21="0" />
+                    <copy onclick="copyToClipboard(80)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option21="1" />
+                    <copy onclick="copyToClipboard(81)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option21="2" />
+                    <copy onclick="copyToClipboard(82)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option21="3" />
+                    <copy onclick="copyToClipboard(83)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="20" />
+                  <paste onclick="pasteFromClipboard(20)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 22 :
+                <textarea name="pertanyaan" data-question="21"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option22="0" />
+                    <copy onclick="copyToClipboard(84)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option22="1" />
+                    <copy onclick="copyToClipboard(85)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option22="2" />
+                    <copy onclick="copyToClipboard(86)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option22="3" />
+                    <copy onclick="copyToClipboard(87)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="21" />
+                  <paste onclick="pasteFromClipboard(21)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 23 :
+                <textarea name="pertanyaan" data-question="22"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option22="0" />
+                    <copy onclick="copyToClipboard(88)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option22="1" />
+                    <copy onclick="copyToClipboard(89)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option22="2" />
+                    <copy onclick="copyToClipboard(90)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option22="3" />
+                    <copy onclick="copyToClipboard(91)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="22" />
+                  <paste onclick="pasteFromClipboard(22)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 24 :
+                <textarea name="pertanyaan" data-question="23"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option24="0" />
+                    <copy onclick="copyToClipboard(92)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option24="1" />
+                    <copy onclick="copyToClipboard(93)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option24="2" />
+                    <copy onclick="copyToClipboard(94)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option24="3" />
+                    <copy onclick="copyToClipboard(95)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="23" />
+                  <paste onclick="pasteFromClipboard(23)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 25 :
+                <textarea name="pertanyaan" data-question="24"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option25="0" />
+                    <copy onclick="copyToClipboard(96)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option25="1" />
+                    <copy onclick="copyToClipboard(97)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option25="2" />
+                    <copy onclick="copyToClipboard(98)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option25="3" />
+                    <copy onclick="copyToClipboard(99)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                </label>
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="24" />
+                  <paste onclick="pasteFromClipboard(24)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 26 :
+                <textarea name="pertanyaan" data-question="25"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option26="0" />
+                    <copy onclick="copyToClipboard(100)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option26="1" />
+                    <copy onclick="copyToClipboard(101)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option26="2" />
+                    <copy onclick="copyToClipboard(102)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option26="3" />
+                    <copy onclick="copyToClipboard(103)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="25" />
+                  <paste onclick="pasteFromClipboard(25)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 27 :
+                <textarea name="pertanyaan" data-question="26"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option27="0" />
+                    <copy onclick="copyToClipboard(104)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option27="1" />
+                    <copy onclick="copyToClipboard(105)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option27="2" />
+                    <copy onclick="copyToClipboard(106)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option27="3" />
+                    <copy onclick="copyToClipboard(107)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="26" />
+                  <paste onclick="pasteFromClipboard(26)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 28 :
+                <textarea name="pertanyaan" data-question="27"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option28="0" />
+                    <copy onclick="copyToClipboard(108)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option28="1" />
+                    <copy onclick="copyToClipboard(109)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option28="2" />
+                    <copy onclick="copyToClipboard(110)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option28="3" />
+                    <copy onclick="copyToClipboard(111)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="27" />
+                  <paste onclick="pasteFromClipboard(27)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 29 :
+                <textarea name="pertanyaan" data-question="28"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option29="0" />
+                    <copy onclick="copyToClipboard(112)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option29="1" />
+                    <copy onclick="copyToClipboard(113)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option29="2" />
+                    <copy onclick="copyToClipboard(114)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option29="3" />
+                    <copy onclick="copyToClipboard(115)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="28" />
+                  <paste onclick="pasteFromClipboard(28)"
+                    ><i class="bx bx-paste"></i> Tempel</paste
+                  >
+                </label>
+              </label>
+              <label for="question"
+                >pertanyaan 30 :
+                <textarea name="pertanyaan" data-question="29"></textarea>
+                <label for="option">
+                  <p>
+                    A
+                    <input type="text" name="option" data-option30="0" />
+                    <copy onclick="copyToClipboard(116)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    B
+                    <input type="text" name="option" data-option30="1" />
+                    <copy onclick="copyToClipboard(117)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    C
+                    <input type="text" name="option" data-option30="2" />
+                    <copy onclick="copyToClipboard(118)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p>
+                  <p>
+                    D
+                    <input type="text" name="option" data-option30="3" />
+                    <copy onclick="copyToClipboard(119)"
+                      ><i class="bx bx-copy"></i> Salin</copy
+                    >
+                  </p></label
+                >
+                <label for="select" id="select">
+                  Jawaban yang benar :
+                  <input type="text" name="trueOption" data-trueOption="29" />
+                  <paste onclick="pasteFromClipboard(29)"
                     ><i class="bx bx-paste"></i> Tempel</paste
                   >
                 </label>
@@ -1070,9 +1686,19 @@
 
     <button class="open" onclick="openFullscreen()">Mulai</button>
     <div class="board" onload="openFullscreen()">
+      <div class="pakEdi-prolog">
+        <div class="imgProlog">
+        <img src="img/pakEdi-prolog.png" alt="pakEdi-prolog">
+        <div class="name">Edi Damansyah -Bupati Kukar</div>
+      </div>
+      <div class="text-prolog">
+        <p><mark></mark></p>
+      <i class="next fa-solid fa-arrow-right"></i>
+      </div>
+    </div>
       <div class="number-in-board"></div>
       <div class="alert-bonus">
-        <img src="img/mini-games.png" alt="mini games" />
+        <img class="pesawat" src="img/mini-games.png" alt="mini games" />
         <img class="bonus-img" src="img/bonus.png" alt="bonus box" />
         <div class="box-turn-player">
           <div class="text">
@@ -1081,6 +1707,11 @@
           </div>
         </div>
         <div class="mini-games">
+          <div class="img-panduan">
+            <img class="panduan-mini-games" src="img/petunjuk mini games.png" />
+            <h1>Jangan sampai salah makan ya!</h1>
+          </div>
+          <button class="panduan-diterima">Oke Saya Faham</button>
           <div class="alertGameOver">
             <div class="boxGameOver">
               <h3>Lain Kali Hati-hati</h3>
@@ -1163,25 +1794,7 @@
       <div class="objek" id="cursor1" data-sentuhan="1">
         <p class="cursorName nameColor1">Player1</p>
       </div>
-      <button class="showQuestion">?</button>
-      <div class="flex-point">
-        <button onclick="tampilPertanyaan(0)"></button>
-        <button onclick="tampilPertanyaan(1)"></button>
-        <button onclick="tampilPertanyaan(2)"></button>
-        <button onclick="tampilPertanyaan(3)"></button>
-        <button onclick="tampilPertanyaan(4)"></button>
-        <button onclick="tampilPertanyaan(5)"></button>
-        <button onclick="tampilPertanyaan(6)"></button>
-        <button onclick="tampilPertanyaan(7)"></button>
-        <button onclick="tampilPertanyaan(8)"></button>
-        <button onclick="tampilPertanyaan(9)"></button>
-        <button onclick="tampilPertanyaan(10)"></button>
-        <button onclick="tampilPertanyaan(11)"></button>
-        <button onclick="tampilPertanyaan(12)"></button>
-        <button onclick="tampilPertanyaan(13)"></button>
-        <button onclick="tampilPertanyaan(14)"></button>
-        <button onclick="tampilPertanyaan(15)"></button>
-      </div>
+      <button class="showQuestion" onclick="tampilPertanyaan()">?</button>
 
       <div class="boxCard">
         <div class="shakeCard">
@@ -1193,7 +1806,167 @@
         </button>
       </div>
       <button id="shakeCard"></button>
-
+      <i class="fas fa-book" id="panduan-in-game"></i>
+      <div class="box-panduan">
+        <div class="buku-panduan">
+          <h2>Panduan Bermain</h2>
+          <ol>
+            <li>
+              Pemain dilarang berbuat curang didalam permainan, jika pemain
+              terbukti melakukan kecurangan maka dihukum
+              <b>mundur 10 langkah</b>
+            </li>
+            <br />
+            <li>
+              Sebelum memulai bermain, para pemain diperintahkan untuk memilih
+              karakter bidak
+            </li>
+            <img
+              class="imgPilih"
+              src="img/pilih-karakter.png"
+              alt="pilih karakter"
+            />
+            <li>Jangan lupa klik tombol mulai, untuk memulai permainan</li>
+            <img src="img/mulai.png" alt="mulai" />
+            <br /><br />
+            <li>sebelum bermain para pemain menonton video materi</li>
+            <img
+              class="imgPilih"
+              src="img/img-videoPenjelasan.png"
+              alt="Penjelasan"
+            />
+            <br />
+            <li>
+              <p>Permainan diawali dengan melempar dadu oleh permain pertama</p>
+              <img src="img/lempar-dadu.png" alt="lempar dadu" />
+              <p>
+                Setelah itu pemain berjalan sesuai nomor dadu yang didapatkan
+              </p>
+            </li>
+            <li>Klik gambar dadu untuk mengganti giliran pemain</li>
+            <li>Klik nama pemain untuk melempar dadu</li>
+            <br />
+            <li>
+              Jika pemain menginjak nomor pertanyaan (nomor warna kuning:
+              <a
+                style="
+                  background: #333;
+                  color: yellow;
+                  border-radius: 50%;
+                  padding: 2px 8px;
+                "
+                >2</a
+              >). Maka, ia berhak untuk membuka kotak pertanyaan lalu memilih
+              nomor pertanyaan
+            </li>
+            <img src="img/buka-jawaban.png" alt="buka jawaban" /><img
+              class="imgPilih"
+              src="img/pilihan-pertanyaan.png"
+              alt="pilih pertanyaan"
+            /><img class="imgPilih" src="img/jawab-soal.png" alt="jawab soal" />
+            <li>
+              pertanyaan hanya dapat dibuka jika pemain berjalan setelah
+              melempar dadu
+            </li>
+            <li>Setiap soal berdurasi 40 detik</li>
+            <br />
+            <li>
+              <p>Jika posisi pemain berada di <b>TANGGA</b>,</p>
+              <img src="img/pemain-di-tangga.png" alt="pemain di tangga" />
+              <p>
+                dan dia menjawab soal yang diberikan dengan jawaban
+                <b>BENAR</b>. Maka, pemain <b>naik ke tangga</b>
+              </p>
+              <img
+                class="imgPilih"
+                src="img/jawaban-benar.png"
+                alt="jawaban benar"
+              />
+              <p>
+                tapi, jika dia menjawab soal yang diberikan dengan jawaban
+                <b>SALAH</b>. Maka, pemain <b>mundur 2 langkah</b>
+              </p>
+              <img
+                class="imgPilih"
+                src="img/jawaban-salah.png"
+                alt="jawaban salah"
+              />
+            </li>
+            <br />
+            <li>
+              <p>Jika posisi pemain berada di <b>ULAR</b>,</p>
+              <img src="img/pemain-di-ular.png" alt="pemain di ular" />
+              <p>
+                dan dia menjawab soal yang diberikan dengan jawaban
+                <b>BENAR</b>. Maka, pemain <b>maju 1 langkah</b>
+              </p>
+              <img
+                class="imgPilih"
+                src="img/jawaban-benar.png"
+                alt="jawaban benar"
+              />
+              <p>
+                tapi, jika dia menjawab soal yang diberikan dengan jawaban
+                <b>SALAH</b>. Maka, pemain <b>turun sampai ujung ekor ular</b>
+              </p>
+              <img
+                class="imgPilih"
+                src="img/jawaban-salah.png"
+                alt="jawaban salah"
+              />
+            </li>
+            <br />
+            <li>
+              <p>
+                Jika pemain tidak menjawab pertanyaan sampai durasi habis. Maka,
+                pemain <b>diam di tempat</b>
+              </p>
+              <img
+                class="imgPilih"
+                src="img/tidak-menjawab.png"
+                alt="diam di tempat"
+              />
+              <p>Pemain juga tidak berhak untuk membuka kartu bonus</p>
+            </li>
+            <br />
+            <li>
+              <p>
+                Setelah menjawab pertanyaan dan menjalankan hukuman sesuai
+                dengan jawaban benar atau salah
+              </p>
+              <p>Pemain berhak untuk membuka kartu bonus</p>
+              <img src="img/lempar-kartu.png" alt="buka kartu bonus" />
+              <img
+                class="imgPilih"
+                src="img/dapat-kartu-belakang.png"
+                alt="kartu bonus belakang"
+              />
+              <img
+                class="imgPilih"
+                src="img/dapat-kartu-depan.png"
+                alt="kartu bonus depan"
+              />
+            </li>
+            <li>
+              kartu hanya dapat dibuka jika pemain mendapat pertanyaan lalu
+              menjawabnya
+            </li>
+            <br />
+            <li>
+              Jika pemain sudah mencapai garis finish. Maka, pemain harus
+              bersegera untuk menuju logo finish
+            </li>
+            <img
+              style="background: #fff; border-radius: 5px"
+              src="img/finish-line.png"
+              alt="logo finish"
+            />
+            <li>Lalu permainan berakhir</li>
+            <img class="imgPilih" src="img/winner1.png" alt="winner" />
+            <img class="imgPilih" src="img/winner2.png" alt="winner" />
+          </ol>
+        </div>
+      </div>
       <div class="questionShadow">
         <div class="questionBox">
           <div class="labelWaktuMundur">
@@ -1212,26 +1985,30 @@
         <div class="pemenangnya-adalah">
           <h2>The Winner Is...</h2>
         </div>
-        <div class="flex-congrats">
-          <img src="img/champions.png" alt="champions" />
-          <button id="reset-semua" class="rst">Restart</button>
-        </div>
-        <div class="rssst">
-          <button>
-            <a
-              href="https://wa.me/62895704050703"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Let's Talk With Developer</a
-            >
-          </button>
-        </div>
-        <div class="quotes-day">
-          <p><i></i></p>
-          <div class="line"></div>
-        </div>
+        <body>
+          <div class="congrats">
+            <div class="line"></div>
+          <canvas class="confetti" id="canvas"></canvas>
+            <div class="congratulation-flex">
+              <button>
+                <a
+                  href="https://wa.me/62895704050703"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Let's Talk With Developer</a
+                >
+              </button>
+              <div class="quotes-day">
+                <p><i></i></p>
+              </div>
+              <div class="flex-congrats">
+                <img src="img/champions.png" alt="champions" />
+                <div class="selamat1"></div>
+              </div>
+              <button id="reset-semua">Restart</button>
+            </div>
+          </div>
       </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script>
@@ -1244,6 +2021,14 @@
         }).mount();
       });
     </script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+      <!-- Element to contain animated typing -->
+  <span id="element"></span>
+
+  <!-- Load library from the CDN -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  
+</body>
     <script src="games-script.js"></script>
     <script src="games-script=rollDice&bidak.js"></script>
     <script src="games-script=quiz.js"></script>

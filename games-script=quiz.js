@@ -1,9 +1,3 @@
-const showPoint = document.querySelector(".showQuestion");
-showPoint.onclick = () => {
-  showPoint.classList.toggle("showQ");
-  document.querySelector(".flex-point").classList.toggle("show");
-};
-
 const waktuMundur = new Audio("sfx/countdown.mp3");
 waktuMundur.volume = 0.5;
 
@@ -19,6 +13,7 @@ function stopCountDownTimeSfx() {
 function isTrue() {
   const isTrue = new Audio("sfx/yeay.mp3");
   isTrue.play();
+  isTrue.volume = 0.6;
 }
 
 function isFalse() {
@@ -32,83 +27,7 @@ function lambat() {
 }
 
 // Array pertanyaan dan jawaban
-let pertanyaan = [
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-  {
-    soal: "",
-    jawaban: ["", "", "", ""],
-    jawabanBenar: "",
-  },
-];
+let pertanyaan = [];
 
 const editQuestion = document.querySelector(".edit-question");
 const createButton = document.querySelector("#create");
@@ -118,175 +37,354 @@ let videoMateri = document.querySelector(".video-explain video");
 function direct() {
   // Array pertanyaan dan jawaban
   pertanyaan = [
-    // A
+    // 1
     {
-      soal: "Apakah vitamin dapat mencegah stunting pada anak?",
+      soal: "Mengapa rendahnya akses terhadap makanan bergizi tinggi dan menu makanan yang tidak seimbang dapat meningkatkan risiko stunting pada anak?",
       jawaban: [
-        "a) Tidak ada yang dapat mencegah stunting",
-        "b) Vitamin hanya berpengaruh pada warna kulit",
-        "c) Vitamin bisa menjadi salah satu usaha untuk mencegah stunting",
-        "d) Hanya vitamin D yang berpengaruh",
+        "a) karena kurangnya asupan gizi dapat mengganggu pertumbuhan anak",
+        "b) Karena faktor genetika anak",
+        "c) Karena ibu tidak memiliki cukup uang untuk membeli makanan",
+        "d) Karena anak kurang suka makanan bergizi tinggi",
       ],
       jawabanBenar:
-        "c) Vitamin bisa menjadi salah satu usaha untuk mencegah stunting",
+        "a) karena kurangnya asupan gizi dapat mengganggu pertumbuhan anak",
     },
-    //   B
+    // 2
+    {
+      soal: "Mengapa ibu perlu memahami konsep gizi sebelum, saat, dan sesudah melahirkan?",
+      jawaban: [
+        "a) Agar anak memiliki hobi makan makanan sehat",
+        "b) Agar ibu bisa memberikan nutrisi yang diperlukan anak",
+        "c) Agar ibu tahu cara memberi pelayanan yang baik pada anak",
+        "d) Agar anak tidak terkena stunting",
+      ],
+      jawabanBenar: "b) Agar ibu bisa memberikan nutrisi yang diperlukan anak",
+    },
+    // 3
+    {
+      soal: 'Apa yang dimaksud dengan "tidak melakukan perawatan pasca melahirkan" sebagai faktor penyebab stunting?',
+      jawaban: [
+        "a) Ibu tidak memberi ASI pada bayinya",
+        "b) Ibu tidak memberi gizi yang cukup untuk anak",
+        "c) Ibu tidak mendukung perkembangan anak secara psikologis",
+        "d) Ibu dan bayi tidak mendapatkan perawatan yang di butuh kan setelah persalinan",
+      ],
+      jawabanBenar:
+        "d) Ibu dan bayi tidak mendapatkan perawatan yang di butuh kan setelah persalinan",
+    },
+    // 4
+    {
+      soal: "Mengapa gangguan mental dan hipertensi pada ibu dapat berkontribusi terhadap stunting pada anak?",
+      jawaban: [
+        "a) Gangguan mental membuat anak lebih pendiam",
+        "b) Hipertensi membuat anak lebih aktif secara fisik",
+        "c) Gangguan mental dan hipertensi dapat memengaruhi nutrisi yang diterima janin",
+        "d) Gangguan mental dan hipertensi hanya memengaruhi pertumbuhan fisik anak",
+      ],
+      jawabanBenar:
+        "c) Gangguan mental dan hipertensi dapat memengaruhi nutrisi yang diterima janin",
+    },
+    // 5
+    {
+      soal: 'Apa yang dimaksud dengan "sakit infeksi yang berulang" sebagai faktor penyebab stunting?',
+      jawaban: [
+        "a) Anak sering terluka saat bermain",
+        "b) Anak sering sakit karena makan makanan yang tidak higienis",
+        "c) Anak sering sakit akibat gigitan serangga",
+        "d) Anak sering mengalami gangguan kesehatan",
+      ],
+      jawabanBenar: "d) Anak sering mengalami gangguan kesehatan",
+    },
+    // 6
+    {
+      soal: "Mengapa faktor sanitasi memainkan peran penting dalam meningkatkan risiko stunting?",
+      jawaban: [
+        "a) Karena sanitasi yang buruk dapat menyebabkan infeksi pada anak",
+        "b) Karena sanitasi dapat mengubah faktor genetika anak",
+        "c) Karena sanitasi tidak memiliki hubungan dengan kesehatan anak",
+        "d) Karena sanitasi hanya memengaruhi anak setelah usia lima tahun",
+      ],
+      jawabanBenar:
+        "a) Karena sanitasi yang buruk dapat menyebabkan infeksi pada anak",
+    },
+    // 7
+    {
+      soal: "Yang bisa dilakukan untuk mencegah stunting? kecuali...",
+      jawaban: [
+        "a) Memahami konsep gizi",
+        "b) Melakukan diet ketat untuk mencapai berat badan ideal",
+        "c) Mengamati pola makan dengan cermat dan memperhatikan kebutuhan nutrisi",
+        "b) Mengikuti program pemeriksaan kesehatan bayi",
+      ],
+      jawabanBenar: "b) Melakukan diet ketat untuk mencapai berat badan ideal",
+    },
+    // 8
+    {
+      soal: "Apa dampak jangka panjang dari stunting terhadap anak?",
+      jawaban: [
+        "a) Peningkatan potensi kecerdasan emosional",
+        "b) Penurunan kapasitas daya ingat",
+        "c) Peningkatan resistensi terhadap penyakit autoimun",
+        "d) Penurunan minat dalam seni dan kreativitas",
+      ],
+      jawabanBenar: "b) Penurunan kapasitas daya ingat",
+    },
+    // 9
+    {
+      soal: "Di Provinsi Kalimantan Timur, daerah yang memiliki angka stunting tertinggi adalah .......... dengan rata rata 27,1% ",
+      jawaban: [
+        "a) Kutai Timur",
+        "b) Kutai Kartanegara",
+        "c) Kutai Barat",
+        "d) Paser",
+      ],
+      jawabanBenar: "b) Kutai Kartanegara",
+    },
+    // 10
+    {
+      soal: "Manakah langkah yang dapat diambil dalam rangka mitigasi stunting?",
+      jawaban: [
+        "a) Pelaksanaan program makanan tinggi lemak",
+        "b) Pengurangan ketersediaan air bersih",
+        "c) Penekanan pada penggunaan susu",
+        "d) Pendidikan gizi untuk ibu hamil dan menyusui",
+      ],
+      jawabanBenar: "d) Pendidikan gizi untuk ibu hamil dan menyusui",
+    },
+    // 11
+    {
+      soal: "Mengapa pendidikan gizi sangat penting untuk para remaja?",
+      jawaban: [
+        "a) Agar potensi kegemukan dapat diminimalisir",
+        "b) Agar mereka memiliki hobi memasak makanan sehat",
+        "c) Agar terbentuk kesadaran tentang nutrisi",
+        "d) Agar kebutuhan protein dalam tubuh bisa terabaikan demi mencegah dampak buruk pada pertumbuhan di masa mendatang",
+      ],
+      jawabanBenar: "c) Agar terbentuk kesadaran tentang nutrisi",
+    },
+    // 12
+    {
+      soal: 'Apa yang dimaksud dengan "promosi menyusui eksklusif" dalam upaya pencegahan stunting?',
+      jawaban: [
+        "a) Mendorong ibu untuk tidak memberikan ASI pada bayi mereka",
+        "b) Mendorong ibu untuk memberikan air putih pada bayi mereka",
+        "c) Mendorong ibu untuk memberikan ASI saja pada bayi mereka",
+        "d) Mendorong ibu untuk memberikan formula susu pada bayi mereka",
+      ],
+      jawabanBenar:
+        "c) Mendorong ibu untuk memberikan ASI saja pada bayi mereka",
+    },
+    // 13
+    {
+      soal: "Faktor apa yang berkaitan dengan pola asuh yang kurang efektif sebagai penyebab stunting?",
+      jawaban: [
+        "a) pemberian makan tidak sesuai yang berakibat pada pola pertumbuhan",
+        "b) Penyelarasan tidur anak yang berlebihan",
+        "c) Intensitas aktivitas fisik anak yang melampaui batas",
+        "d) Interaksi yang minim dengan anak",
+      ],
+      jawabanBenar:
+        "a) pemberian makan tidak sesuai yang berakibat pada pola pertumbuhan",
+    },
+    // 14
+    {
+      soal: "Mengapa sanitasi yang buruk dapat meningkatkan risiko stunting pada anak?",
+      jawaban: [
+        "a) Karena sanitasi buruk memiliki efek langsung pada pertambahan berat badan anak",
+        "b) Karena sanitasi buruk dapat menyebabkan infeksi dan gangguan kesehatan",
+        "c) Karena anak cenderung memiliki metabolisme yang lebih rendah dalam lingkungan sanitasi yang buruk",
+        "d) Karena sanitasi buruk dapat memicu aktivasi genetik yang mengarah pada stunting",
+      ],
+      jawabanBenar:
+        "b) Karena sanitasi buruk dapat menyebabkan infeksi dan gangguan kesehatan pada anak",
+    },
+    // 15
+    {
+      soal: "Apa yang bisa dilakukan ibu hamil untuk mencegah stunting pada anak yang dikandungnya?",
+      jawaban: [
+        "a) Membaca buku tentang gizi",
+        "b) menghindari jenis makanan yang mengandung gula, dan rutin berolahraga",
+        "c) Mengonsumsi secukupnya makanan berkalori tinggi",
+        "d) Membatasi asupan protein demi menghindari risiko alergi pada janin",
+      ],
+      jawabanBenar:
+        "b) menghindari jenis makanan yang mengandung gula, dan rutin berolahraga",
+    },
+    // 16
+    {
+      soal: "Bagaimana sanitasi yang buruk dapat berkontribusi terhadap stunting pada anak?",
+      jawaban: [
+        "a) Sanitasi buruk hanya memengaruhi anak setelah usia lima tahun",
+        "b) Sanitasi buruk hanya memengaruhi anak yang belum lahir",
+        "c) Sanitasi buruk dapat menyebabkan infeksi dan gangguan kesehatan",
+        "d) sanitasi buruk dapat mempengaruhi pertumbuhan anak",
+      ],
+      jawabanBenar:
+        "c) Sanitasi buruk dapat menyebabkan infeksi dan gangguan kesehatan",
+    },
+    // 17
+    {
+      soal: "Hipertensi adalah istilah medis ketika kondisi tekanan darah pada tubuh melebihi batas normal. Mengapa gangguan mental dan hipertensi pada ibu dapat menjadi faktor penyebab stunting?",
+      jawaban: [
+        "a) Karena ibu yang memiliki gangguan mental dan hipertensi cenderung memiliki anak dengan faktor genetika yang buruk",
+        "b) Karena gangguan mental dan hipertensi pada ibu hanya mempengaruhi pertumbuhan fisik anak",
+        "c) Karena gangguan mental dan hipertensi pada ibu dapat memengaruhi asupan gizi dan nutrisi yang diterima janin",
+        "d) Karena gangguan mental dan hipertensi pada ibu hanya mempengaruhi anak setelah usia lima tahun",
+      ],
+      jawabanBenar:
+        "c) Karena gangguan mental dan hipertensi pada ibu dapat memengaruhi asupan gizi dan nutrisi yang diterima janin",
+    },
+    // 18
+    {
+      soal: "Apa dampak jangka panjang dari stunting terhadap kemampuan anak?",
+      jawaban: [
+        "a) menurunnya kemampuan atletik pada anak",
+        "b) Tidak ada dampak terhadap kemampuan belajar anak",
+        "c) Tidak ada hubungan antara stunting dan kemampuan belajar anak",
+        "d) Menurunnya kemampuan belajar dan risiko gangguan perkembangan otak",
+      ],
+      jawabanBenar:
+        "d) Menurunnya kemampuan belajar dan risiko gangguan perkembangan otak",
+    },
+    // 19
+    {
+      soal: "Apa dampak stunting terhadap kemampuan fisik anak?",
+      jawaban: [
+        "a) Menurunnya kemampuan atletik anak",
+        "b) Tidak ada dampak terhadap kemampuan fisik anak",
+        "c) Meningkatnya kemampuan fisik anak",
+        "d) Memengaruhi pertumbuhan berat badan anak",
+      ],
+      jawabanBenar: "a) Menurunnya kemampuan atletik anak",
+    },
+    // 20
+    {
+      soal: "Mengapa tingkat stunting di Indonesia melampaui batas yang ditetapkan oleh WHO?",
+      jawaban: [
+        "a) Karena anak-anak di Indonesia lebih suka makan makanan ringan",
+        "b) Karena faktor rendahnya pengetahuan, akses gizi dan sanitasi yang buruk",
+        "c) karena anak-anak di Indonesia kurang minum air",
+        "d) Karena anak-anak di Indonesia hanya makan makanan yang tidak sehat",
+      ],
+      jawabanBenar:
+        "b) Karena faktor rendahnya pengetahuan, akses gizi dan sanitasi yang buruk",
+    },
+    // 21
+    {
+      soal: "Mengapa pendidikan tentang pola makan yang sehat penting dalam pencegahan stunting?",
+      jawaban: [
+        "a) Karena pola makan yang sehat memengaruhi anak setelah usia lima tahun",
+        "b) Karena pola makan yang sehat dapat memengaruhi berat badan anak",
+        "c) Karena pola makan yang sehat dapat memberikan anak cukup energi untuk bermain",
+        "d) Karena pola makan yang sehat dapat memengaruhi pertumbuhan dan perkembangan anak",
+      ],
+      jawabanBenar:
+        "d) Karena pola makan yang sehat dapat memengaruhi pertumbuhan dan perkembangan anak",
+    },
+    // 22
+    {
+      soal: "Berdasarkan data dari Badan Kesehatan Dunia (WHO), apa yang bisa disimpulkan tentang prevalensi stunting di Indonesia?",
+      jawaban: [
+        "a) Semua anak di bawah usia lima tahun mengalami stunting",
+        "b) Lebih dari setengah anak di bawah usia lima tahun mengalami stunting",
+        "c) Sekitar seperempat anak di bawah usia lima tahun mengalami stunting",
+        "d) Tidak ada anak di Indonesia yang mengalami stunting",
+      ],
+      jawabanBenar:
+        "c) Sekitar seperempat anak di bawah usia lima tahun mengalami stunting",
+    },
+    // 23
+    {
+      soal: "Apa yang dimaksud dengan stunting?",
+      jawaban: [
+        "a) Keadaan psikologis anak yang buruk",
+        "b) Keadaan anak yang memiliki tinggi badan sangat tinggi",
+        "c) Keadaan anak yang memiliki tinggi badan lebih tinggi dari yang seharusnya karena asupan gizi berlebih",
+        "d) Keadaan anak yang memiliki tinggi badan lebih pendek dari yang seharusnya karena kurangnya asupan gizi",
+      ],
+      jawabanBenar:
+        "d) Keadaan anak yang memiliki tinggi badan lebih pendek dari yang seharusnya karena kurangnya asupan gizi",
+    },
+    // 24
+    {
+      soal: "Mengapa stunting dapat memengaruhi perkembangan otak anak?",
+      jawaban: [
+        "a) Karena stunting memengaruhi pertumbuhan fisik",
+        "b) Karena otak anak tidak mempengaruhi pertumbuhan fisik",
+        "c) Karena anak dengan stunting memiliki otak yang lebih kecil dari anak lainnya",
+        "d) Karena nutrisi yang kurang dapat mempengaruhi perkembangan otak yang optimal",
+      ],
+      jawabanBenar:
+        "d) Karena nutrisi yang kurang dapat mempengaruhi perkembangan otak yang optimal",
+    },
+    // 25
+    {
+      soal: 'Apa yang dimaksud dengan "faktor genetika" dalam konteks stunting?',
+      jawaban: [
+        "a) Faktor yang memengaruhi anak setelah usia lima tahun",
+        "b) Faktor yang memengaruhi anak yang sudah dewasa",
+        "c) Faktor yang berasal dari keturunan orang tua dan memengaruhi pertumbuhan anak",
+        "d) Faktor yang memengaruhi anak yang lahir dengan berat badan rendah",
+      ],
+      jawabanBenar:
+        "c) Faktor yang berasal dari keturunan orang tua dan memengaruhi pertumbuhan anak",
+    },
+    // 26
+    {
+      soal: "Mengapa penting untuk mengatasi stunting?",
+      jawaban: [
+        "a) Karena dampak stunting hanya terlihat pada penampilan fisik anak",
+        "b) Karena stunting dapat berdampak pada pertumbuhan fisik, perkembangan otak, dan kesehatan secara keseluruhan",
+        "c) Karena stunting berhubungan dengan aspek pertumbuhan fisik, perkembangan otak, tidak dengan kesejahteraan keseluruhan",
+        "d) Karena stunting memiliki pengaruh sementara pada anak-anak, dan tidak memiliki implikasi pada usia dewasa",
+      ],
+      jawabanBenar:
+        "b) Karena stunting dapat berdampak pada pertumbuhan fisik, perkembangan otak, dan kesehatan secara keseluruhan",
+    },
+    // 27
     {
       soal: "Sebagai remaja, mulai dari sekarang kita bisa mencegah terjadinya stunting dikemudian hari, salah satu caranya adalah?",
       jawaban: [
-        "a) Selalu mencukupi gizi yang dibutuhkan oleh tubuh",
-        "b) Olahraga berlebihan",
-        "c) Menjaga pola tidur yang buruk",
-        "d) Makan makanan sayur saja",
-      ],
-      jawabanBenar: "a) Selalu mencukupi gizi yang dibutuhkan oleh tubuh",
-    },
-    //   C
-    {
-      soal: "Apakah stunting setelah usia 2 tahun sudah lewat 1000 hari pertama kehidupan sama sekali tidak bisa diperbaiki?",
-      jawaban: [
-        "a) Bisa diperbaiki dengan operasi",
-        "b) Pertumbuhan otak sangat pesat terjadi pada 2 tahun pertama sehingga setelah usia 2 tahun, tidak bisa diperbaiki",
-        "c) Hanya bisa diperbaiki dengan obat-obatan khusus",
-        "d) Bisa diperbaiki dengan menghindari aktivitas fisik",
+        "a) Mengintegrasikan beragam sumber nutrisi dalam pola makan sehari-hari",
+        "b) Berfokus pada aktivitas fisik agar memiliki badan yang sehat tanpa memedulikan asupan nutrisi",
+        "c) Tidur lebih untuk mencapai produktivitas yang lebih tinggi",
+        "d) Melakukan diet untuk mengontrol berat badan",
       ],
       jawabanBenar:
-        "b) Pertumbuhan otak sangat pesat terjadi pada 2 tahun pertama sehingga setelah usia 2 tahun, tidak bisa diperbaiki",
+        "a) Mengintegrasikan beragam sumber nutrisi dalam pola makan sehari-hari",
     },
-    //   D
+    // 28
     {
       soal: "Apakah stunting dapat dicegah atau dikoreksi?",
       jawaban: [
-        "a) Tidak bisa sama sekali",
-        "b) Hanya bisa dikoreksi pada masa remaja",
+        "a) Dapat dicegah sampai usia 12 tahun",
+        "b) Koreksi hanya efektif pada tahap awal usia balita",
         "c) Selama periode emas atau pada 1000 Hari Pertama Kehidupan s/d usia 2 tahun",
-        "d) Hanya bisa dicegah sebelum usia 1 tahun",
+        "d) Pencegahan hanya berlaku selama masa kehamilan, tidak ada yang bisa dilakukan setelah kelahiran",
       ],
       jawabanBenar:
         "c) Selama periode emas atau pada 1000 Hari Pertama Kehidupan s/d usia 2 tahun",
     },
-    //   E
-    {
-      soal: "Apa dampak dari masalah gizi kronis selain stunting?",
-      jawaban: [
-        "a) Warna rambut berubah",
-        "b) Gangguan pada perkembangan kognitif, motorik, dan sistem kekebalan tubuh",
-        "c) Menjadi lebih kuat secara fisik",
-        "d) Tidur lebih nyenyak",
-      ],
-      jawabanBenar:
-        "b) Gangguan pada perkembangan kognitif, motorik, dan sistem kekebalan tubuh",
-    },
-    // F
-    {
-      soal: "Peran remaja dalam menurunkan angka stunting adalah dengan cara?",
-      jawaban: [
-        "a) Menghindari makanan daging",
-        "b) Tidur sepanjang hari",
-        "c) Mengonsumsi makanan bergizi seimbang",
-        "d) Menjauhi teman sebaya",
-      ],
-      jawabanBenar: "c) Mengonsumsi makanan bergizi seimbang",
-    },
-    //   G
-    {
-      soal: "Selain faktor genetika, Faktor lain apa yang dapat mempengaruhi terjadinya stunting pada anak?",
-      jawaban: [
-        "a) Banyak bermain video game",
-        "b) Faktor lingkungan dan pelayanan kesehatan",
-        "c) Kelebihan tidur",
-        "d) Konsumsi buah dan sayur",
-      ],
-      jawabanBenar: "b) Faktor lingkungan dan pelayanan kesehatan",
-    },
-    //   H
-    {
-      soal: "Mengapa dikatakan makanan yang tidak seimbang dapat memengaruhi pertumbuhan anak dan meningkatkan risiko stunting?",
-      jawaban: [
-        "a) Karena anak kurang suka makan",
-        "b) Di karenakan ibu kurang mengerti tentang konsep gizi sebelum, saat, dan setelah melahirkan",
-        "c) Ibu terlalu banyak berolahraga",
-        "d) Di karenakan kurang nya uang",
-      ],
-      jawabanBenar:
-        "b) Di karenakan ibu kurang mengerti tentang konsep gizi sebelum, saat, dan setelah melahirkan",
-    },
-    //   I
-    {
-      soal: "Keterbatasan akses pada air bersih juga akan mempertinggi risiko stunting pada anak, Hal ini merupakan faktor?",
-      jawaban: [
-        "a) Faktor kelalaian",
-        "b) Faktor sanitasi",
-        "c) Keberadaan hewan peliharaan",
-        "d) Ketersediaan hiburan",
-      ],
-      jawabanBenar: "b) Faktor sanitasi",
-    },
-    //   J
-    {
-      soal: "Dalam jangka panjang, dampak stunting adalah?",
-      jawaban: [
-        "a) Peningkatan tinggi badan",
-        "b) Kecerdasan tinggi",
-        "c) Kesulitan belajar",
-        "d) Kemampuan atletik lebih baik",
-      ],
-      jawabanBenar: "c) Kesulitan belajar",
-    }, // K
+    // 29
     {
       soal: "Untuk mencegah stunting, tidak butuh biaya yang besar, salah satu contoh nya adalah?",
       jawaban: [
-        "a) Konsumsi makanan murah yang bermanfaat seperti tempe, tahu, sayur kangkung, dll",
-        "b) Membeli ayam goreng setiap hari di pasar",
+        "a) Konsumsi makanan murah yang bermanfaat seperti tempe, tahu, dan sayur kangkung",
+        "b) Konsumsi makanan murah yang bermanfaat seperti tempe, steak, sayur kangkung",
         "c) Konsumsi daging, sayur-sayuran, nasi goreng, setiap hari",
-        "d) Makan makanan yang murah seperti sosis",
+        "d) Makan makanan yang murah bermanfaat seperti sosis, dan nugget",
       ],
       jawabanBenar:
-        "a) Konsumsi makanan murah yang bermanfaat seperti tempe, tahu, sayur kangkung, dll",
+        "a) Konsumsi makanan murah yang bermanfaat seperti tempe, tahu, dan sayur kangkung",
     },
-    //   L
-    {
-      soal: "Sakit infeksi yang berulang pada anak disebabkan oleh?",
-      jawaban: [
-        "a) Konsumsi makanan berlebihan",
-        "b) Sistem imunitas tubuh yang tidak bekerja secara maksimal",
-        "c) Kekurangan tidur",
-        "d) Terlalu banyak bermain di luar",
-      ],
-      jawabanBenar:
-        "b) Sistem imunitas tubuh yang tidak bekerja secara maksimal",
-    },
-    //   M
-    {
-      soal: "Dalam jangka pendek, dampak stunting adalah?",
-      jawaban: [
-        "a) Kulit menjadi lebih halus",
-        "b) Kekuatan otot meningkat",
-        "c) Terganggunya perkembangan otak, metabolisme, dan pertumbuhan fisik pada anak",
-        "d) Penglihatan lebih baik",
-      ],
-      jawabanBenar:
-        "c) Terganggunya perkembangan otak, metabolisme, dan pertumbuhan fisik pada anak",
-    },
-    //   N
-    {
-      soal: "Bagaimana cara mengatasi stunting dimasa kehamilan?",
-      jawaban: [
-        "a) Berpuasa",
-        "b) Berolahraga",
-        "c) Menjaga pola tidur yang buruk",
-        "d) Selalu memenuhi gizi sejak masa kehamilan",
-      ],
-      jawabanBenar: "d) Selalu memenuhi gizi sejak masa kehamilan",
-    },
-    //   O
+    // 30
     {
       soal: "Stunting adalah gagal tumbuh akibat kurangnya asupan gizi, berikut makanan apa saja yang dapat menambah gizi?",
       jawaban: [
         "a) Ikan bakar, telur rebus, buah pepaya, dan sayur bayam",
         "b) Ikan gabus, telur rebus, buah pepaya, dan sayur bayam",
         "c) ikan gabus, telur mentah, buah alpukat, dan sayur bayam",
-        "d) ikan salmon, telur asin, buat busuk, dan sayur asam",
+        "d) ikan salmon, telur asin, buah kematengan, dan sayur asam",
       ],
       jawabanBenar: "b) Ikan gabus, telur rebus, buah pepaya, dan sayur bayam",
     },
@@ -304,7 +402,82 @@ function direct() {
 
 function edit() {
   // Array pertanyaan dan jawaban
-  let pertanyaan = [
+  pertanyaan = [
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
+    {
+      soal: "",
+      jawaban: ["", "", "", ""],
+      jawabanBenar: "",
+    },
     {
       soal: "",
       jawaban: ["", "", "", ""],
@@ -382,7 +555,7 @@ function edit() {
     },
   ];
 
-  videoMateri.src = "";
+  videoMateri.src = "no video.mp4";
   localStorage.setItem("videoExplain", "videoMateri");
 
   editQuestion.style.display = "block";
@@ -400,7 +573,7 @@ if (localStorage.getItem("directEditQuestion") === "none") {
 } else {
   editQuestion.style.display = "block";
   createButton.style.display = "block";
-  videoMateri.src = "";
+  videoMateri.src = "no video.mp4";
 }
 
 const storedPertanyaan = localStorage.getItem("pertanyaan");
@@ -417,6 +590,8 @@ function hideQuestionBox() {
   boxQuestion.style.display = "none";
   question.style.display = "none";
   stopCountDownTimeSfx();
+  nomorSoal = Math.floor(Math.random() * 29) + 0;
+  console.log(nomorSoal);
 }
 
 let timerId; // buat variabel untuk menyimpan id penundaan
@@ -458,9 +633,10 @@ function stopTimer() {
 }
 
 // Menampilkan pertanyaan dan opsi jawaban
-let nomorSoal = 0;
-function tampilPertanyaan(nomor) {
-  nomorSoal = nomor;
+let nomorSoal = Math.floor(Math.random() * 29) + 0;
+console.log(nomorSoal);
+function tampilPertanyaan() {
+  pop();
   showQuestion();
 
   question.innerHTML = pertanyaan[nomorSoal].soal;
@@ -476,8 +652,6 @@ function tampilPertanyaan(nomor) {
   }
   document.getElementById("opsiJawaban").innerHTML = opsiJawaban;
 
-  showPoint.classList.remove("showQ");
-  document.querySelector(".flex-point").classList.remove("show");
   // Mendapatkan referensi elemen radio button dan tombol submit
   const radioButtons = document.querySelectorAll('input[type="radio"]');
   const submitButton = document.getElementById("jawab");
@@ -533,13 +707,6 @@ var jawaban = document.querySelectorAll("input[type='radio']:checked");
 for (var i = 0; i < jawaban.length; i++) {
   jawaban[i].checked = false;
 }
-
-const pointQuestion = document.querySelectorAll(".flex-point button");
-pointQuestion.forEach((pointQuestion) => {
-  pointQuestion.addEventListener("mouseover", () => {
-    klik();
-  });
-});
 
 let succesInput = document.querySelector(".succesInput");
 
@@ -700,6 +867,142 @@ function editContent(event) {
       replacementOption
     );
   });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option16");
+    const replacementOption = inputOption.value;
+    pertanyaan[15].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption16${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option17");
+    const replacementOption = inputOption.value;
+    pertanyaan[16].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption17${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option18");
+    const replacementOption = inputOption.value;
+    pertanyaan[17].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption18${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option19");
+    const replacementOption = inputOption.value;
+    pertanyaan[18].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption19${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option20");
+    const replacementOption = inputOption.value;
+    pertanyaan[19].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption20${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option21");
+    const replacementOption = inputOption.value;
+    pertanyaan[20].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption21${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option22");
+    const replacementOption = inputOption.value;
+    pertanyaan[21].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption22${indexOption}`,
+      replacementOption
+    );
+  });
+  7;
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option23");
+    const replacementOption = inputOption.value;
+    pertanyaan[22].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption23${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option24");
+    const replacementOption = inputOption.value;
+    pertanyaan[23].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption24${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option25");
+    const replacementOption = inputOption.value;
+    pertanyaan[24].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption25${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option26");
+    const replacementOption = inputOption.value;
+    pertanyaan[25].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption26${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option27");
+    const replacementOption = inputOption.value;
+    pertanyaan[26].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption27${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option28");
+    const replacementOption = inputOption.value;
+    pertanyaan[27].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption28${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option29");
+    const replacementOption = inputOption.value;
+    pertanyaan[28].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption29${indexOption}`,
+      replacementOption
+    );
+  });
+  inputOption.forEach((inputOption) => {
+    const indexOption = inputOption.getAttribute("data-option30");
+    const replacementOption = inputOption.value;
+    pertanyaan[29].jawaban[indexOption] = replacementOption;
+    localStorage.setItem(
+      `replacementOption30${indexOption}`,
+      replacementOption
+    );
+  });
 
   const alertBerhasilSave = document.querySelector(".alertBerhasilSave");
   userEdit.classList.remove("fa-times");
@@ -713,7 +1016,7 @@ function editContent(event) {
     alertBerhasilSave.classList.remove("active");
   }, 3000);
 
-  let succesInputText = (succesInput.textContent = "Game Storage Full 🔒");
+  let succesInputText = (succesInput.textContent = "Game Storage Terisi 🔒");
   let succesInputColor = (succesInput.style.background = "#f31414");
   localStorage.setItem(`succesInputText`, succesInputText);
   localStorage.setItem(`succesInputColor`, succesInputColor);
@@ -805,11 +1108,71 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     const storedOption14 = localStorage.getItem(`replacementOption14${o}`);
     if (storedOption14) {
-      pertanyaan[13].jawaban[o] = storedOption13;
+      pertanyaan[13].jawaban[o] = storedOption14;
     }
     const storedOption15 = localStorage.getItem(`replacementOption15${o}`);
     if (storedOption15) {
-      pertanyaan[14].jawaban[o] = storedOption14;
+      pertanyaan[14].jawaban[o] = storedOption15;
+    }
+    const storedOption16 = localStorage.getItem(`replacementOption16${o}`);
+    if (storedOption16) {
+      pertanyaan[15].jawaban[o] = storedOption16;
+    }
+    const storedOption17 = localStorage.getItem(`replacementOption17${o}`);
+    if (storedOption17) {
+      pertanyaan[16].jawaban[o] = storedOption17;
+    }
+    const storedOption18 = localStorage.getItem(`replacementOption18${o}`);
+    if (storedOption18) {
+      pertanyaan[17].jawaban[o] = storedOption18;
+    }
+    const storedOption19 = localStorage.getItem(`replacementOption19${o}`);
+    if (storedOption19) {
+      pertanyaan[18].jawaban[o] = storedOption19;
+    }
+    const storedOption20 = localStorage.getItem(`replacementOption20${o}`);
+    if (storedOption20) {
+      pertanyaan[19].jawaban[o] = storedOption20;
+    }
+    const storedOption21 = localStorage.getItem(`replacementOption21${o}`);
+    if (storedOption21) {
+      pertanyaan[20].jawaban[o] = storedOption21;
+    }
+    const storedOption22 = localStorage.getItem(`replacementOption22${o}`);
+    if (storedOption22) {
+      pertanyaan[21].jawaban[o] = storedOption22;
+    }
+    const storedOption23 = localStorage.getItem(`replacementOption23${o}`);
+    if (storedOption23) {
+      pertanyaan[22].jawaban[o] = storedOption23;
+    }
+    const storedOption24 = localStorage.getItem(`replacementOption24${o}`);
+    if (storedOption24) {
+      pertanyaan[23].jawaban[o] = storedOption24;
+    }
+    const storedOption25 = localStorage.getItem(`replacementOption25${o}`);
+    if (storedOption25) {
+      pertanyaan[24].jawaban[o] = storedOption25;
+    }
+    const storedOption26 = localStorage.getItem(`replacementOption26${o}`);
+    if (storedOption26) {
+      pertanyaan[25].jawaban[o] = storedOption26;
+    }
+    const storedOption27 = localStorage.getItem(`replacementOption27${o}`);
+    if (storedOption27) {
+      pertanyaan[26].jawaban[o] = storedOption27;
+    }
+    const storedOption28 = localStorage.getItem(`replacementOption28${o}`);
+    if (storedOption28) {
+      pertanyaan[27].jawaban[o] = storedOption28;
+    }
+    const storedOption29 = localStorage.getItem(`replacementOption29${o}`);
+    if (storedOption29) {
+      pertanyaan[28].jawaban[o] = storedOption29;
+    }
+    const storedOption30 = localStorage.getItem(`replacementOption30${o}`);
+    if (storedOption30) {
+      pertanyaan[29].jawaban[o] = storedOption30;
     }
   }
 });

@@ -19,11 +19,13 @@ const drumi = new Audio("sfx/drum.mp3");
 function drum() {
   drumi.play();
   drumi.currentTime = 2.2;
+  drumi.volume = 0.7;
 }
 
 const champion = new Audio("sfx/champions.mp3");
 function champions() {
   champion.play();
+  champion.volume = 0.5;
 }
 
 // array untuk menyimpan elemen kotak dan status dragging-nya
@@ -290,6 +292,7 @@ var rollButton = document.getElementById("rollButton");
 
 // Mendefinisikan fungsi untuk mengklik tombol "kocok dadu"
 function rollButtonClick() {
+  klik();
   rollSound();
   // Menonaktifkan tombol selama animasi berlangsung
   rollButton.disabled = true;
@@ -455,12 +458,11 @@ for (let i = players.length - 1; i >= 0; i--) {
 }
 
 const randomQuotes = [
-  '"Jangan lupa makan sayur"',
-  '"Jangan lupa makan tempe"',
-  '"Jangan lupa makan tahu"',
-  '"Jangan lupa makan ikan"',
-  '"Jangan lupa makan buah"',
-  '"Jangan lupa minum susu"',
+  '"Makan wortel untuk jaga kesehatan mata"',
+  '"Makan tempe bisa atasi penyakit infeksi seperti diare"',
+  '"Kamu hebat mampu memahami pertanyaan tentang gizi dan stunting"',
+  '"Tahukah kamu ikan gabus ternyata punya protein yang tinggi"',
+  '"Minum susu bisa memperkuat tulang kamu"',
 ];
 // Fungsi untuk menampilkan pesan selamat
 function showCongratulations(boxNumber) {
@@ -479,6 +481,8 @@ function showCongratulations(boxNumber) {
     document.querySelector(".congratulations").style.display = "block";
     setTimeout(() => {
       document.querySelector(".pemenangnya-adalah").style.display = "none";
+      initConfetti();
+      render();
     }, 4500);
     localStorage.setItem("champions", "win");
   }, 500);
@@ -584,71 +588,3 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
-function rollTurn() {
-  return Math.floor(Math.random() * words.length);
-}
-
-const pemain = document.querySelector(".pemain");
-
-function turnPlayer() {
-  // Mengulangi animasi dadu selama 108 frame dengan interval 50 ms
-  var frames = 72;
-  var interval = 60;
-  var currentFrame = 0;
-  var rollInterval = setInterval(function () {
-    // Mengubah gambar dadu secara acak setiap frame
-    var value = rollTurn();
-    pemain.textContent = words[value];
-
-    console.log(words[value]);
-    // Meningkatkan frame saat ini
-    currentFrame++;
-
-    // Menghentikan animasi setelah 108 frame
-    if (currentFrame === frames) {
-      clearInterval(rollInterval);
-      pemain.classList.add("on");
-    }
-  }, interval);
-}
-
-let diceClickCount = 0;
-
-let randomBonus = Math.floor(Math.random() * (30 - 20 + 1)) + 20;
-
-console.log(randomBonus);
-
-function pickRollDice() {
-  klik();
-
-  diceClickCount++;
-
-  if (diceClickCount == randomBonus) {
-    document.querySelector(".alert-bonus").style.display = "flex";
-
-    setTimeout(() => {
-      turnPlayer();
-    }, 3000);
-
-    setTimeout(() => {
-      document.querySelector(".mini-games").classList.add("on");
-    }, 10000);
-  }
-
-  if (currentWordIndex >= words.length) {
-    currentWordIndex = 0;
-  }
-  if (currentColorIndex >= color.length) {
-    currentColorIndex = 0;
-  }
-
-  rollButton.innerHTML = words[currentWordIndex];
-  rollButton.style.background = color[currentColorIndex];
-
-  currentWordIndex++;
-  currentColorIndex++;
-
-  localStorage.setItem("currentWordIndex", currentWordIndex);
-  localStorage.setItem("currentColorIndex", currentColorIndex);
-}

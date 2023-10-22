@@ -34,7 +34,6 @@ body {
   align-items: center;
   cursor: pointer;
 }
-
 header {
   position: fixed;
   justify-content: center;
@@ -57,7 +56,6 @@ header {
   top: 3px;
   width: 175px;
   margin: -10px 0;
-  margin-left: -15px;
 }
 header:hover {
   box-shadow: 0px 15px 20px 1px rgb(0, 0, 0, 0.1);
@@ -288,14 +286,13 @@ header:hover {
   position: fixed;
   background: rgb(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  top: 100%;
-  z-index: 2;
+  z-index: 3;
   transition: all 0.2s ease;
-  opacity: 0;
+  display: none;
 }
 .box-panduan.active {
   top: 0;
-  opacity: 1;
+  display: block;
 }
 .buku-panduan {
   border-radius: 5px;
@@ -365,6 +362,16 @@ header:hover {
   z-index: 3;
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
 }
+#panduan-in-game {
+  border-radius: 5px;
+  margin: 10px;
+  position: relative;
+  z-index: 4;
+  transition: all 0.1s ease;
+}
+#panduan-in-game:hover {
+  scale: 1.1;
+}
 
 .fas.fa-exclamation-circle {
   position: fixed;
@@ -421,7 +428,7 @@ header:hover {
   position: fixed;
   background: #fff;
   width: 90%;
-  height: 90%;
+  height: 80%;
   overflow: auto;
   left: 50%;
   top: 160%;
@@ -432,7 +439,7 @@ header:hover {
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
 }
 .edit-content.showEdit {
-  top: 50%;
+  top: 53%;
   display: block;
 }
 
@@ -664,8 +671,9 @@ copy:hover {
   right: 0;
   margin: 60px;
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
+  z-index: 13;
 }
-.exit .hover-element:hover .hover-text {
+.hover-element:hover .hover-text {
   opacity: 1;
   transition: opacity 0.3s 0.1s ease;
 }
@@ -684,6 +692,7 @@ copy:hover {
   left: 0;
   margin: 60px;
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
+  z-index: 13;
 }
 
 .hover-element-b:hover .hover-text-b {
@@ -705,6 +714,7 @@ copy:hover {
   right: 0;
   margin: 55px;
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
+  z-index: 13;
 }
 
 .hover-element-v:hover .hover-text-v {
@@ -726,6 +736,7 @@ copy:hover {
   left: 0;
   margin: 55px;
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
+  z-index: 13;
 }
 
 .menu-reset {
@@ -775,6 +786,8 @@ copy:hover {
   font-size: 20px;
   border: none;
   cursor: pointer;
+  z-index: 30;
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
 }
 
 .rssst {
@@ -1109,6 +1122,64 @@ copy:hover {
   }
 }
 
+.pakEdi-prolog {
+  z-index: 10;
+  position: absolute;
+  display: none;
+  justify-content: left;
+  align-items: center;
+  height: 100vh;
+  background: rgb(0, 0, 0, 0.7);
+  width: 100%;
+}
+.imgProlog img {
+  width: 200px;
+  height: auto;
+  position: relative;
+  transform: rotateY(180deg);
+}
+.imgProlog .name {
+  z-index: 11;
+  position: absolute;
+  background: #a084e8;
+  color: #fff;
+  transform: translateY(-8px);
+  padding: 5px;
+}
+.text-prolog {
+  margin: 0 80px;
+  position: relative;
+  width: 100%;
+  max-height: 180px;
+  height: 100%;
+}
+.text-prolog p mark {
+  text-align: justify;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  background: rgb(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 18px;
+}
+.next {
+  position: absolute;
+  background: #fff;
+  color: #000;
+  bottom: 0;
+  right: 0;
+  padding: 5px 10px;
+  transform: translateY(60px) translateX(100px);
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  font-size: 30px;
+  border-radius: 5px;
+}
+.next.active {
+  transform: translateY(60px) translateX(0);
+  opacity: 1;
+}
+
 .open {
   color: #a084e8;
   font-weight: bold;
@@ -1201,7 +1272,7 @@ copy:hover {
   background: #000;
   position: absolute;
   width: 23%;
-  height: 20%;
+  height: 15%;
   top: 0;
   right: 0;
   opacity: 0;
@@ -1223,7 +1294,6 @@ copy:hover {
   background-position: center;
   display: none;
 }
-
 .congratulations {
   background: #feeee7;
   position: absolute;
@@ -1241,24 +1311,56 @@ copy:hover {
   background-position: center;
   background-repeat: no-repeat;
 }
+.confetti {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  user-select: none;
+  background: transparent;
+}
+.congrats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.congratulation-flex {
+  text-align: center;
+}
+.congratulation-flex button {
+  background: #a084e8;
+  color: #fff;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 30px 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 21;
+}
+.congratulation-flex button a {
+  text-decoration: none;
+  color: #fff;
+}
 .flex-congrats {
   position: relative;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.congratulations img {
+.flex-congrats img {
   width: 200px;
   height: 200px;
-  margin: 0 5px;
-  display: flex;
-  position: relative;
+  margin: 30px 0;
+  margin-right: 10px;
+  cursor: pointer;
   top: 5px;
+  filter: drop-shadow(3px 3px 0 rgb(0, 0, 0, 1));
 }
-.congratulations .line {
+.line {
   position: absolute;
   z-index: -1;
   border: 10px solid #a084e8;
@@ -1271,6 +1373,20 @@ copy:hover {
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
+}
+.selamat1,
+.selamat2,
+.selamat3,
+.selamat4,
+.selamat5 {
+  color: #a084e8;
+  font-size: 40px;
+  top: 10px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
+}
+.quotes-day {
+  font-size: 20px;
 }
 .pemenangnya-adalah {
   display: flex;
@@ -1290,27 +1406,6 @@ copy:hover {
   100% {
     font-size: 60px;
   }
-}
-.selamat1,
-.selamat2,
-.selamat3,
-.selamat4,
-.selamat5 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #a084e8;
-  font-size: 40px;
-  position: relative;
-  top: 10px;
-}
-.quotes-day {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  margin: 0 10%;
-  margin-top: -30px;
 }
 
 .video-explain {
@@ -1445,7 +1540,7 @@ button:focus {
   position: absolute;
   background: rgb(0, 0, 0, 0.5);
   display: none;
-  z-index: 4;
+  z-index: 5;
 }
 
 .shakeCard {
@@ -1570,24 +1665,6 @@ button:focus {
   color: #000;
 }
 
-.flex-point {
-  display: flex;
-  flex-wrap: wrap;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  background: rgb(223, 255, 172);
-  display: none;
-  z-index: 2;
-}
-.flex-point.show {
-  display: block;
-  z-index: 2;
-}
-
 .showQuestion.showQ {
   cursor: pointer;
   position: absolute;
@@ -1605,86 +1682,6 @@ button:focus {
   border: none;
 }
 
-.flex-point button {
-  width: 10%;
-  height: 20%;
-  margin: 15px;
-  font-size: 30px;
-  border-radius: 5px;
-  border: none;
-  color: #fff;
-  background: #fff;
-  cursor: pointer;
-}
-.flex-point button:hover {
-  scale: 1.05;
-  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
-}
-
-.flex-point button:nth-child(1)::before {
-  color: #ff5733;
-  content: "1";
-}
-.flex-point button:nth-child(2)::before {
-  color: #ffc300;
-  content: "2";
-}
-.flex-point button:nth-child(3)::before {
-  color: #ff4d4d;
-  content: "3";
-}
-.flex-point button:nth-child(4)::before {
-  color: #c70039;
-  content: "4";
-}
-.flex-point button:nth-child(5)::before {
-  color: #900c3f;
-  content: "5";
-}
-.flex-point button:nth-child(6)::before {
-  color: #f44336;
-  content: "6";
-}
-.flex-point button:nth-child(7)::before {
-  color: #e91e63;
-  content: "7";
-}
-.flex-point button:nth-child(8)::before {
-  color: #9c27b0;
-  content: "8";
-}
-.flex-point button:nth-child(9)::before {
-  color: #673ab7;
-  content: "9";
-}
-.flex-point button:nth-child(10)::before {
-  color: #3f51b5;
-  content: "10";
-}
-.flex-point button:nth-child(11)::before {
-  color: #2196f3;
-  content: "11";
-}
-.flex-point button:nth-child(12)::before {
-  color: #00bcd4;
-  content: "12";
-}
-.flex-point button:nth-child(13)::before {
-  color: #009688;
-  content: "13";
-}
-.flex-point button:nth-child(14)::before {
-  color: #4caf50;
-  content: "14";
-}
-.flex-point button:nth-child(15)::before {
-  color: #8bc34a;
-  content: "15";
-}
-.flex-point button:nth-child(16) {
-  display: none;
-}
-
 .questionShadow {
   top: 0;
   left: 0;
@@ -1693,7 +1690,7 @@ button:focus {
   height: 100%;
   position: fixed;
   display: none;
-  z-index: 3;
+  z-index: 5;
   backdrop-filter: blur(5px);
 }
 
@@ -1790,8 +1787,7 @@ input[type="radio"]:checked {
   background-repeat: no-repeat;
   box-shadow: 0 2px 5px 1px #000;
 }
-
-#jawab {
+.flex-congrats #jawab {
   font-size: 20px;
   position: absolute;
   bottom: 0;
@@ -1824,7 +1820,7 @@ input[type="radio"]:checked {
   left: 50%;
   top: -50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 5;
   transition: all 0.2s ease;
   display: flex;
   text-align: center;
@@ -2011,6 +2007,7 @@ input[type="radio"]:checked {
   opacity: 0;
   animation: box-bonus 0.6s 2s forwards;
   z-index: 22;
+  left: 10px;
 }
 
 @keyframes box-bonus {
@@ -2121,21 +2118,27 @@ input[type="radio"]:checked {
   }
 }
 
-.alert-bonus img:nth-child(1) {
+.alert-bonus .pesawat {
   width: 30%;
   top: 50%;
   left: 130%;
   transform: translate(-50%, -50%);
   position: absolute;
-  animation: alertBonusAnimation 1s 1s forwards;
+  animation: alertBonusAnimation 2.5s 1s forwards;
 }
 
 @keyframes alertBonusAnimation {
   0% {
     left: 130%;
   }
-  100% {
+  30% {
     left: 50%;
+  }
+  70% {
+    left: 50%;
+  }
+  100% {
+    left: -20%;
   }
 }
 
@@ -2213,6 +2216,51 @@ input[type="radio"]:checked {
   background: #1e1e1e;
   border-radius: 5px;
   box-shadow: 0 20px 40px rgba(52, 87, 220, 0.2);
+  position: relative;
+}
+
+.img-panduan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-panduan h1 {
+  color: #fff;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+}
+
+.panduan-mini-games {
+  position: absolute;
+  z-index: 8;
+  background: #383838;
+  box-shadow: 0 0 0 500px #383838;
+  width: 70%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.panduan-diterima {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 10px;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  z-index: 9;
+  background: #9e4784;
+  border: none;
+  cursor: pointer;
 }
 
 .game-details {
@@ -2350,8 +2398,60 @@ input[type="radio"]:checked {
   .board {
     background-size: contain;
   }
-  .board-point {
+  .text-prolog p mark {
+    font-size: 13px;
+  }
+  .text-prolog {
+    margin: 0 40px;
+    max-height: 140px;
+  }
+  .imgProlog img {
+    width: 150px;
+    height: auto;
+  }
+  .imgProlog .name {
+    font-size: 12px;
+  }
+  .finish {
+    width: 40px;
+    height: 40px;
+  }
+  .number-in-board {
     background-size: contain;
+  }
+  #shakeCard {
+    width: 45px;
+    height: 45px;
+  }
+  .showQuestion {
+    font-size: 21px;
+    padding: 10px 15px;
+  }
+  .exit {
+    margin: 10px;
+    border: none;
+    background: none;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .fa-arrow-left {
+    position: relative;
+    font-size: 20px;
+    background: #1e1c2a;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
+    cursor: pointer;
+    z-index: 1;
+  }
+  #panduan-in-game {
+    font-size: 20px;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
   }
   .objek {
     width: 50px;
@@ -2404,24 +2504,30 @@ input[type="radio"]:checked {
   .congratulations img {
     width: 100px;
     height: 100px;
-    margin: 0 5px;
-    display: flex;
+    margin: 10px 0;
   }
   .selamat1,
   .selamat2,
   .selamat3,
   .selamat4,
   .selamat5 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #f45050;
-    font-size: 30px;
+    font-size: 25px;
   }
   .quotes-day {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 16px;
+  }
+  .congratulation-flex button {
+    background: #a084e8;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 21;
+  }
+  .congratulation-flex #reset-semua {
+    margin: 0;
   }
 }
