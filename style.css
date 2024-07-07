@@ -16,7 +16,7 @@
     linear-gradient(
       0deg,
       rgba(255, 255, 255, 1) 0%,
-      rgba(239, 255, 245, 1) 90%,
+      rgba(239, 255, 245, 1) 70%,
       rgba(213, 255, 228, 1) 100%
     );
   --big-font: 3rem;
@@ -39,6 +39,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 header {
@@ -75,7 +76,9 @@ header:hover {
   display: flex;
 }
 .navbar a {
-  color: #7a9d54;
+  color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
   font-size: 1rem;
   padding: 0 20px;
   font-weight: 500;
@@ -88,6 +91,7 @@ header:hover {
   padding: 10px 20px;
   backdrop-filter: blur(5px);
   box-shadow: 0px 2px 5px 1px rgb(0, 0, 0, 0.25);
+  text-shadow: none;
 }
 #menu-icon {
   font-size: 2rem;
@@ -106,18 +110,23 @@ section {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1.5rem;
   align-items: center;
+  margin-top: 40px;
 }
-
+.home-img {
+  width: 100%;
+  margin-left: 50px;
+}
 .home-img img {
-  margin-top: 50px;
-  max-width: 100%;
-  width: 450px;
+  width: 100%;
+  max-width: 350px;
   height: auto;
   filter: drop-shadow(0px 15px 20px rgb(0, 0, 0, 0.25));
 }
 .home-text h1 {
   font-size: var(--big-font);
   color: var(--main-color);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
 }
 .home-text h2 {
   font-size: var(--h2-font);
@@ -132,6 +141,9 @@ section {
   position: relative;
   z-index: 1;
   transition: all 0.1s ease;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
+  border: 1px solid #000;
 }
 .btn:hover {
   background: #6f61c0;
@@ -155,7 +167,9 @@ section {
 .about-text span {
   color: var(--main-color);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 22px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
 }
 .about-text h2 {
   font-size: var(--h2-font);
@@ -172,6 +186,9 @@ section {
 .heading span {
   color: var(--main-color);
   font-weight: 600;
+  font-size: 22px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
 }
 .heading h2 {
   font-size: var(--h2-font);
@@ -196,7 +213,7 @@ section {
   padding: 20px;
   border-radius: 5px;
   color: #fff;
-  /* border: 2px solid rgb(61, 80, 41); */
+  border: 1px solid #000;
 }
 .box-img {
   width: 220px;
@@ -210,12 +227,16 @@ section {
   margin-top: 5px;
   font-size: 1.3rem;
   color: var(--bg-color);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
 }
 .box h3 {
   color: var(--bg-color);
   font-size: 1rem;
   font-weight: 400;
   margin: 2px 0 10px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
 }
 .box span {
   font-size: var(--p-font);
@@ -230,9 +251,13 @@ section {
   background: none;
   color: #fff;
   cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 5px;
 }
 .box button a {
   color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
 }
 .box span:hover {
   transform: scale(1.05);
@@ -246,24 +271,24 @@ section {
   top: 0;
   font-size: 25px;
   padding: 7px 10px;
-  border-radius: 0 0 0 5px;
+  border-radius: 0 5px 0 5px;
 }
 
 .cta {
   background: #7a9d54;
-  padding: 40px 0;
+  padding: 20px 10px;
   text-align: center;
   width: 66%;
   margin: 100px auto;
   border-radius: 5px;
-  /* border: 2px solid rgb(61, 80, 41); */
+  border: 1px solid #000;
 }
 .cta h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #fff;
-  margin-bottom: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-bottom: 10px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
 }
 .cta i {
   margin-left: 10px;
@@ -283,6 +308,8 @@ footer h2 {
   margin-right: 10px;
   margin-bottom: 10px;
   font-size: 30px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
 }
 
 .social-media a {
@@ -301,6 +328,8 @@ footer h2 {
   margin-top: 20px;
   font-size: 14px;
   color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
 }
 @media (max-width: 1560px) {
   header {
@@ -325,6 +354,10 @@ footer h2 {
   .home {
     grid-template-columns: 1fr;
     text-align: center;
+    margin-top: 0;
+  }
+  .home-img {
+    margin-left: 0;
   }
   .about {
     grid-template-columns: 1fr;
@@ -353,15 +386,15 @@ footer h2 {
   header .navbar {
     position: fixed;
     top: 55px;
-    left: 42%;
+    left: 40%;
     right: 52%;
     display: flex;
     flex-direction: column;
     text-align: center;
     background: #fff;
     transition: all 0.2s ease;
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
     overflow: hidden;
     opacity: 0;
     border-radius: 15px;

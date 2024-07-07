@@ -25,6 +25,8 @@ function whoosh() {
 const prolog = new Audio("sfx/prolog.mp3");
 function playProlog() {
   prolog.play();
+  prolog.volume = 0.2;
+  backsound.loop = true;
 }
 function stopProlog() {
   prolog.pause();
@@ -38,6 +40,14 @@ function playTyping() {
 function stopTyping() {
   typing.pause();
   typing.currentTime = 0;
+}
+
+// Fungsi untuk menonaktifkan fungsi-fungsi
+function disableFunctions() {
+  playProlog = function () {};
+  stopProlog = function () {};
+  playTyping = function () {};
+  stopTyping = function () {};
 }
 
 const board = document.querySelector(".board");
@@ -141,7 +151,7 @@ window.addEventListener("resize", () => {
   }
 });
 
-const backsound = new Audio("sfx/backsound.mp3");
+let backsound = new Audio("sfx/backsound.mp3");
 
 function playBacksoundMusic() {
   if (backsound.paused) {
@@ -151,6 +161,11 @@ function playBacksoundMusic() {
   } else {
     backsound.pause();
   }
+}
+
+function stopBgMusic() {
+  backsound = "";
+  playBacksoundMusic = function () {};
 }
 
 const volumeCLick = document.querySelector(".volume");
@@ -308,10 +323,10 @@ const showGame = document.querySelector(".gameShowUlarTangga");
 showGame.classList.add("active");
 document.querySelector("html").classList.add("showEdit");
 
-document.querySelector(".video-explain video").onplay = () => {
+document.querySelector(".video-explain iframe").onplay = () => {
   alertMulai.style.display = "none";
 };
-document.querySelector(".video-explain video").onpause = () => {
+document.querySelector(".video-explain iframe").onpause = () => {
   alertMulai.style.display = "block";
 };
 
@@ -383,9 +398,9 @@ belum.onclick = () => {
 
 mulai.onclick = () => {
   const pakEdiProlog = document.querySelector(".pakEdi-prolog");
-  pakEdiProlog.style.display = "flex";
+  pakEdiProlog.classList.remove("active");
   const next = document.querySelector(".next");
-  let textProlog = document.querySelector(".text-prolog p mark");
+  let textProlog = document.querySelector(".text-prolog p");
   let countNext = 0;
   let typed;
 
@@ -397,15 +412,17 @@ mulai.onclick = () => {
   function stopNext() {
     next.classList.remove("active");
   }
-  playTyping();
+  setTimeout(() => {
+    playTyping();
+  }, 4000);
   // Setup and start animation!
   typed = new Typed(textProlog, {
     strings: [
       `Kabupaten Kutai Kartanegara, merupakan sebuah daerah yang indah di negara Indonesia, memiliki beragam budaya, bahasa, suku, dan objek wisata. Namun, saat ini daerah ini sedang menghadapi masalah serius, yaitu masalah stunting. Stunting adalah kondisi ketika anak-anak mengalami pertumbuhan fisik yang terhambat akibat kurangnya gizi. Saat ini, banyak anak di Kutai Kartanegara mengalami stunting, ditahun 2022 angka prevalensi stunting memiliki rata-rata 27,1%, dan ini menjadi ancaman serius bagi masa depan mereka.`,
     ],
-    typeSpeed: 10,
+    typeSpeed: 1,
+    startDelay: 4000,
     onComplete: () => {
-      // Tampilkan alert setelah efek pengetikan selesai
       Next();
       stopTyping();
     },
@@ -418,10 +435,10 @@ mulai.onclick = () => {
       stopNext();
       typed = new Typed(textProlog, {
         strings: [
-          `Pemerintah Kabupaten (Pemkab) Kutai Kartanegara (Kukar) telah membentuk Tim Percepatan Penurunan Stunting (TPPS) Periode 2022-2025 dan telah menetapkan desa/kelurahan lokasi lokus intervensi tahun 2022 pencegahan dan penanganan stunting terintegrasi.
+          `Pemerintah Kabupaten (Pemkab) Kutai Kartanegara (Kukar) telah membentuk Tim Percepatan Penurunan Stunting (TPPS) Periode 2022-2021 dan telah menetapkan desa/kelurahan lokasi lokus intervensi tahun 2022 pencegahan dan penanganan stunting terintegrasi.
           <br>Pada tahun 2022, Pemkab Kukar mempunyai target prevalensi stunting pada tahun 2022 sebanyak 21,89 persen, tahun 2023 di angka 18.13 persen, dan tahun 2024 di angka 14.42 persen.`,
         ],
-        typeSpeed: 10,
+        typeSpeed: 1,
         onComplete: () => {
           Next();
           stopTyping();
@@ -436,7 +453,7 @@ mulai.onclick = () => {
           <i>1. Menjawab tantangan berupa soal tentang stunting,</i> hal ini bertujuan untuk mengetahui seberapa jauh dan pantas kah pemahaman kalian untuk mengatasi masalah stunting ini<br>
           <i>2. Mencapai garis finish,</i> dengan tercapainya tujuan sampai garis finish, maka akan memperlihatkan hasil dari jawaban kalian yang bisa kalian jadikan pembelajaran untuk bisa lebih baik lagi dalam memahami stunting`,
         ],
-        typeSpeed: 10,
+        typeSpeed: 1,
         onComplete: () => {
           Next();
           stopTyping();
@@ -449,19 +466,20 @@ mulai.onclick = () => {
         strings: [
           `Kalian adalah satu-satunya harapan untuk mengubah nasib anak-anak di Kutai Kartanegara. Apakah kalian siap untuk misi ini? Saat kalian bergerak maju dalam game ini, kalian akan belajar lebih banyak tentang stunting dan upaya-upaya untuk mengatasinya. Kesuksesan kalian akan mengubah masa depan daerah ini. Selamat bermain dan selamatkan masa depan anak-anak Kutai Kartanegara!`,
         ],
-        typeSpeed: 10,
+        typeSpeed: 1,
         onComplete: () => {
           Next();
           stopTyping();
         },
       });
     } else {
-      pakEdiProlog.remove();
+      pakEdiProlog.classList.add("active");
       stopTyping();
       playBacksoundMusic();
       stopProlog();
     }
   };
+
   audioOnOff.classList.toggle("fa-volume-mute");
   audioOnOff.classList.toggle("fa-volume-up");
   alertMulai.style.display = "none";
@@ -634,6 +652,34 @@ const changeDirection = (e) => {
   }
 };
 
+// Define a function to update the head rotation based on the snake's movement
+const updateHeadRotation = () => {
+  const heads = document.querySelectorAll(".head");
+
+  // Check the direction of the snake's head
+  if (velocityX === 0 && velocityY === -1) {
+    // Snake is moving up
+    heads.forEach((head) => {
+      head.style.transform = "rotate(90deg)";
+    });
+  } else if (velocityX === 1 && velocityY === 0) {
+    // Snake is moving right
+    heads.forEach((head) => {
+      head.style.transform = "rotate(180deg)";
+    });
+  } else if (velocityX === 0 && velocityY === 1) {
+    // Snake is moving down
+    heads.forEach((head) => {
+      head.style.transform = "rotate(270deg)";
+    });
+  } else if (velocityX === -1 && velocityY === 0) {
+    // Snake is moving left
+    heads.forEach((head) => {
+      head.style.transform = "rotate(0deg)";
+    });
+  }
+};
+
 // change direction on each key click
 
 controls.forEach((button) =>
@@ -713,6 +759,8 @@ const initGame = () => {
 
   snakeBody[0] = [snakeX, snakeY];
 
+  updateHeadRotation();
+
   // check snake body is out of wall or no
   // if it comes out, it will appear again on the opposite fence
 
@@ -754,6 +802,7 @@ const initGame = () => {
       html += html2;
     } else {
       html2 = `<div class="junk" style="grid-area: ${0} / ${0}"></div>`;
+      html += html2;
     }
     if (foodX == junkX && foodY == junkY) {
       updateFoodPosition();

@@ -53,13 +53,7 @@
   </head>
   <body>
     <div class="load">
-      <div class="loadingspinner">
-        <div id="square1"></div>
-        <div id="square2"></div>
-        <div id="square3"></div>
-        <div id="square4"></div>
-        <div id="square5"></div>
-      </div>
+      <span class="loader"></span>
     </div>
 
     <div class="before-header">
@@ -91,7 +85,7 @@
             <img src="img/direct-game.png" alt="img ular tangga" />
           </div>
           <h3>Tema: <mark>Stunting</mark></h3>
-          <p>Langsung mulai bermain dengan soal-soal pemahaman tentang gizi</p>
+          <p>Langsung mulai bermain dengan soal-soal pemahaman tentang gizi dan stunting</p>
           <input type="radio" name="pickTypeGame" />
         </div>
 
@@ -99,7 +93,7 @@
           <div class="imgUlarTangga">
             <img src="img/edit-game.png" alt="img ular tangga" />
           </div>
-          <h3>Edit sendiri</h3>
+          <h3>Kustomisasi Permainan</h3>
           <p>Bisa bermain dengan mengedit soal-soal versi kamu sendiri</p>
           <input type="radio" name="pickTypeGame" />
         </div>
@@ -253,7 +247,7 @@
           <br />
           <li>
             Jika pemain sudah mencapai garis finish. Maka, pemain harus
-            bersegera untuk menuju logo finish
+            bersegera untuk bergerak menuju logo finish
           </li>
           <img
             style="background: #fff; border-radius: 5px"
@@ -263,6 +257,7 @@
           <li>Lalu permainan berakhir</li>
           <img class="imgPilih" src="img/winner1.png" alt="winner" />
           <img class="imgPilih" src="img/winner2.png" alt="winner" />
+          <img class="imgPilih" src="img/winner3.png" alt="winner" />
         </ol>
       </div>
     </div>
@@ -1686,13 +1681,13 @@
 
     <button class="open" onclick="openFullscreen()">Mulai</button>
     <div class="board" onload="openFullscreen()">
-      <div class="pakEdi-prolog">
+      <div class="pakEdi-prolog active">
         <div class="imgProlog">
         <img src="img/pakEdi-prolog.png" alt="pakEdi-prolog">
         <div class="name">Edi Damansyah -Bupati Kukar</div>
       </div>
       <div class="text-prolog">
-        <p><mark></mark></p>
+        <p></p>
       <i class="next fa-solid fa-arrow-right"></i>
       </div>
     </div>
@@ -1742,14 +1737,21 @@
         <img src="img/rotate-smartphone.png" alt="please rotate your phone" />
       </div>
       <div class="video-explain">
-        <video
-          class="explain-video"
-          controls
-          controlsList="nodownload"
-          src=""
-          controls
-          type="video/mp4"
-        ></video>
+        <iframe 
+        class="explain-video"
+        width="560" height="315" 
+        src="" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        ></iframe>
+      <video
+        controls
+        controlsList="nodownload"
+        src=""
+        controls
+        type="video/mp4"
+      ></video>
       </div>
       <button id="alert-mulai">Mulai Permainan</button>
       <div class="mulai-permainan">
@@ -1859,11 +1861,8 @@
               >). Maka, ia berhak untuk membuka kotak pertanyaan lalu memilih
               nomor pertanyaan
             </li>
-            <img src="img/buka-jawaban.png" alt="buka jawaban" /><img
-              class="imgPilih"
-              src="img/pilihan-pertanyaan.png"
-              alt="pilih pertanyaan"
-            /><img class="imgPilih" src="img/jawab-soal.png" alt="jawab soal" />
+            <img src="img/buka-jawaban.png" alt="buka jawaban" />
+            <img class="imgPilih" src="img/jawab-soal.png" alt="jawab soal" />
             <li>
               pertanyaan hanya dapat dibuka jika pemain berjalan setelah
               melempar dadu
@@ -1954,7 +1953,7 @@
             <br />
             <li>
               Jika pemain sudah mencapai garis finish. Maka, pemain harus
-              bersegera untuk menuju logo finish
+              bersegera untuk bergerak menuju logo finish
             </li>
             <img
               style="background: #fff; border-radius: 5px"
@@ -1964,6 +1963,7 @@
             <li>Lalu permainan berakhir</li>
             <img class="imgPilih" src="img/winner1.png" alt="winner" />
             <img class="imgPilih" src="img/winner2.png" alt="winner" />
+            <img class="imgPilih" src="img/winner3.png" alt="winner" />
           </ol>
         </div>
       </div>
@@ -2005,9 +2005,23 @@
                 <img src="img/champions.png" alt="champions" />
                 <div class="selamat1"></div>
               </div>
-              <button id="reset-semua">Restart</button>
+              <button class="game-result">Hasil Permainan</button>
             </div>
           </div>
+      </div>
+      <div class="result_wrapper">
+        <h2 class="result_true"><i class="fa-solid fa-square-check"></i> 10</h2>
+    <div id="random-text"></div>
+        <div class="img_winner">
+          <h2 class="valueGame">A+</h2>
+          <img src="img/pakEdi-menang.png" alt="win" />
+          <p class="komen">Hebat! Teruskan!</p>
+          <div class="butn">
+            <button id="back">Kembali</button>
+          <button id="reset-semua">Restart</button>
+        </div>
+        </div>
+        <h2 class="result_false"><i class="fa-solid fa-square-xmark"></i> 10</h2>
       </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
@@ -2033,5 +2047,4 @@
     <script src="games-script=rollDice&bidak.js"></script>
     <script src="games-script=quiz.js"></script>
     <script src="loading-script.js"></script>
-  </body>
 </html>

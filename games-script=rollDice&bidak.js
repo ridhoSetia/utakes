@@ -203,6 +203,12 @@ for (let i = 0; i < objCursor.length; i++) {
   }
 }
 
+objCursor.forEach((bidak) => {
+  bidak.ondblclick = () => {
+    bidak.classList.toggle("rotate");
+  };
+});
+
 const skinElements = [
   {
     bidak: document.querySelector("#cursor1"),
@@ -469,6 +475,7 @@ function showCongratulations(boxNumber) {
   setTimeout(() => {
     drum();
     setTimeout(() => {
+      stopBgMusic();
       champions();
     }, 2800);
     const quotesElement = document.querySelector(".quotes-day p i");

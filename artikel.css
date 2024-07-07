@@ -75,11 +75,13 @@ header:hover {
   list-style: none;
 }
 .navbar a {
-  color: #7a9d54;
+  color: #fff;
   font-size: 1rem;
   padding: 0 20px;
   font-weight: 500;
   transition: all 0.1s ease;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* Efek outline */
 }
 .navbar a:hover {
   color: var(--main-color);
@@ -88,6 +90,7 @@ header:hover {
   padding: 10px 20px;
   backdrop-filter: blur(5px);
   box-shadow: 0px 2px 5px 1px rgb(0, 0, 0, 0.25);
+  text-shadow: none;
 }
 #menu-icon {
   font-size: 2rem;
@@ -153,6 +156,7 @@ section {
   padding: 20px;
   border-radius: 5px;
   overflow: hidden;
+  border: 1px solid #000;
 }
 .box-img {
   width: 220px;

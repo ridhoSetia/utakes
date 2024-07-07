@@ -20,12 +20,19 @@ body {
     linear-gradient(
       0deg,
       rgba(255, 255, 255, 1) 0%,
-      rgba(239, 255, 245, 1) 90%,
+      rgba(239, 255, 245, 1) 70%,
       rgba(213, 255, 228, 1) 100%
     );
   font-family: "Acme", sans-serif;
   letter-spacing: 0.5px;
   padding-bottom: 40px;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+:root {
+  --outline: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .before-header {
@@ -89,7 +96,8 @@ header:hover {
   justify-content: center;
   align-items: center;
   margin-top: 100px;
-  color: #a084e8;
+  color: #c6b7ec;
+  text-shadow: var(--outline); /* Efek outline */
 }
 .pilihBerapaPlayer input[name="pilihPlayer"] {
   display: flex;
@@ -138,7 +146,7 @@ header:hover {
     linear-gradient(
       0deg,
       rgba(255, 255, 255, 1) 0%,
-      rgba(239, 255, 245, 1) 90%,
+      rgba(239, 255, 245, 1) 70%,
       rgba(213, 255, 228, 1) 100%
     );
   padding-top: 10px;
@@ -153,7 +161,8 @@ header:hover {
 }
 .gameShowUlarTangga h2 {
   margin-top: 10px;
-  color: #a084e8;
+  color: #fff;
+  text-shadow: var(--outline); /* Efek outline */
 }
 .gameShowUlarTangga.active {
   display: block;
@@ -191,10 +200,11 @@ header:hover {
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
 }
 .boxUlarTangga h3 {
-  color: #a084e8;
+  color: #c6b7ec;
+  text-shadow: var(--outline); /* Efek outline */
 }
 .boxUlarTangga p {
-  margin: 5px 0;
+  margin: 10px 0;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -257,7 +267,7 @@ header:hover {
   background: #fff;
   width: 80%;
   height: auto;
-  border-radius: 50px;
+  border-radius: 15px;
   position: fixed;
   bottom: -20vh;
   left: 50%;
@@ -265,7 +275,7 @@ header:hover {
   margin: 15px 0;
   z-index: 5;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
   opacity: 0;
 }
 .alertBerhasilSave p {
@@ -894,12 +904,12 @@ copy:hover {
   background: #fff;
   color: #262333;
 }
-
 /* styling choose skin */
 
 .chooseSkin {
   margin-top: 100px;
-  color: #a084e8;
+  color: #c6b7ec;
+  text-shadow: var(--outline); /* Efek outline */
 }
 
 .playerSkin {
@@ -914,6 +924,7 @@ copy:hover {
   justify-content: center;
   color: #fff;
   margin-bottom: -40px;
+  text-shadow: var(--outline); /* Efek outline */
 }
 
 .playerSkin:nth-child(1) {
@@ -1125,41 +1136,53 @@ copy:hover {
 .pakEdi-prolog {
   z-index: 10;
   position: absolute;
-  display: none;
+  display: flex;
   justify-content: left;
-  align-items: center;
-  height: 100vh;
-  background: rgb(0, 0, 0, 0.7);
+  align-items: end;
+  max-height: 100vh;
+  height: 100%;
   width: 100%;
+  background-image: url(img/jembatan_kukar.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  bottom: 0;
+  opacity: 1;
+  transition: opacity 1s ease 2s, bottom 1s ease;
+}
+.pakEdi-prolog.active {
+  transition: opacity 1s ease, bottom 1s ease 2s;
+  opacity: 0;
+  bottom: -100vh;
 }
 .imgProlog img {
   width: 200px;
   height: auto;
   position: relative;
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateY(-20px);
+  background: rgb(0, 0, 0, 0.8);
 }
 .imgProlog .name {
   z-index: 11;
   position: absolute;
   background: #a084e8;
   color: #fff;
-  transform: translateY(-8px);
+  transform: translateY(-30px);
   padding: 5px;
 }
 .text-prolog {
-  margin: 0 80px;
-  position: relative;
-  width: 100%;
-  max-height: 180px;
+  max-height: 262px;
   height: 100%;
+  width: 100%;
+  background: rgb(0, 0, 0, 0.8);
 }
-.text-prolog p mark {
-  text-align: justify;
+.text-prolog p {
+  text-align: left;
   letter-spacing: 1px;
   line-height: 1.6;
-  background: rgb(0, 0, 0, 0.7);
   color: #fff;
   font-size: 18px;
+  margin: 40px 80px;
 }
 .next {
   position: absolute;
@@ -1167,8 +1190,9 @@ copy:hover {
   color: #000;
   bottom: 0;
   right: 0;
+  margin: 10px;
   padding: 5px 10px;
-  transform: translateY(60px) translateX(100px);
+  transform: translateX(100px);
   cursor: pointer;
   opacity: 0;
   transition: all 0.2s ease;
@@ -1176,7 +1200,7 @@ copy:hover {
   border-radius: 5px;
 }
 .next.active {
-  transform: translateY(60px) translateX(0);
+  transform: translateX(0);
   opacity: 1;
 }
 
@@ -1382,8 +1406,7 @@ copy:hover {
   color: #a084e8;
   font-size: 40px;
   top: 10px;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000; /* Efek outline */
+  text-shadow: var(--outline); /* Efek outline */
 }
 .quotes-day {
   font-size: 20px;
@@ -1407,6 +1430,104 @@ copy:hover {
     font-size: 60px;
   }
 }
+.result_wrapper {
+  z-index: 20;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(255, 255, 255)
+    linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(239, 255, 245, 1) 70%,
+      rgba(213, 255, 228, 1) 100%
+    );
+}
+.img_winner img {
+  opacity: 0;
+  width: 350px;
+  height: auto;
+  filter: drop-shadow(0 5px 15px rgb(160, 132, 232, 0.25));
+  margin: 50px 0;
+  transform: translateY(-10px);
+}
+@keyframes imgWinner {
+  0% {
+    scale: 1;
+  }
+  70% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+.img_winner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.result_wrapper button {
+  background: #a084e8;
+  color: #fff;
+  font-size: 28px;
+  padding: 5px;
+  margin: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 21;
+  text-shadow: var(--outline); /* Efek outline */
+  border: 1px solid #000;
+  opacity: 0;
+  animation: imgWinner 0.3s 7.05s forwards;
+}
+.result_wrapper {
+  color: #fff;
+}
+.result_wrapper h2 {
+  background: #a084e8;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 50px;
+  width: 120px;
+  text-align: center;
+  text-shadow: var(--outline); /* Efek outline */
+  border: 1px solid #000;
+}
+.result_true {
+  position: absolute;
+  left: 0;
+  margin-left: 10%;
+}
+.result_false {
+  position: absolute;
+  right: 0;
+  margin-right: 10%;
+}
+.butn {
+  display: flex;
+}
+
+@keyframes true {
+  0% {
+    scale: 1;
+  }
+  70% {
+    scale: 1.5;
+  }
+  100% {
+    scale: 1;
+  }
+}
 
 .video-explain {
   background: rgb(0, 0, 0, 0.25);
@@ -1422,9 +1543,10 @@ copy:hover {
   z-index: 4;
 }
 
+.video-explain iframe,
 .video-explain video {
-  width: 80%;
-  height: 80%;
+  width: 85%;
+  height: 85%;
 }
 
 .mulai-permainan {
@@ -1500,7 +1622,7 @@ button:focus {
   position: absolute;
   width: 65px;
   height: 65px;
-  border: 5px solid #252525;
+  border: 4px solid #000;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
   cursor: pointer;
@@ -1513,7 +1635,6 @@ button:focus {
 
 #rollButton {
   margin-top: 125px;
-  border: none;
   padding: 5px;
   font-size: 20px;
   border-radius: 8px;
@@ -1522,10 +1643,10 @@ button:focus {
   justify-content: center;
   color: #fff;
   align-items: center;
-  text-shadow: 0 0 3px #000;
+  text-shadow: var(--outline); /* Efek outline */
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.25);
   cursor: pointer;
-  border: 4px solid #252525;
+  border: 3px solid #000;
   transition: all 0.1s ease;
 }
 #rollButton:active {
@@ -1787,7 +1908,7 @@ input[type="radio"]:checked {
   background-repeat: no-repeat;
   box-shadow: 0 2px 5px 1px #000;
 }
-.flex-congrats #jawab {
+#jawab {
   font-size: 20px;
   position: absolute;
   bottom: 0;
@@ -1796,7 +1917,7 @@ input[type="radio"]:checked {
   padding: 10px 12.5px;
   border-radius: 50%;
   border: none;
-  background: #643a6b;
+  background: #a084e8;
   color: #fff;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -1812,7 +1933,7 @@ input[type="radio"]:checked {
 
 #result {
   color: #1e1c2a;
-  background: #feeee7;
+  background: #edfed1;
   font-size: 45px;
   padding: 25px;
   border-radius: 5px;
@@ -1831,6 +1952,28 @@ input[type="radio"]:checked {
   box-shadow: none;
   opacity: 0;
 }
+#result img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  position: relative;
+  transform: translateY(5px);
+}
+#result p {
+  position: relative;
+  left: -10px;
+}
+#result button {
+  background: #a084e8;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  top: -8px;
+  border: none;
+  cursor: pointer;
+}
+
 .check-icon {
   color: #0bb90b;
   background: transparent;
@@ -1894,7 +2037,6 @@ input[type="radio"]:checked {
 .objek:active {
   cursor: grabbing;
 }
-
 #cursor1,
 #cursor2,
 #cursor3,
@@ -1903,6 +2045,13 @@ input[type="radio"]:checked {
   background-position: center;
   background-size: 95%;
   background-repeat: no-repeat;
+}
+#cursor1.rotate,
+#cursor2.rotate,
+#cursor3.rotate,
+#cursor4.rotate,
+#cursor5.rotate {
+  transform: rotateY(180deg);
 }
 #cursor1 {
   filter: drop-shadow(0 0 10px #e20000);
@@ -2007,7 +2156,6 @@ input[type="radio"]:checked {
   opacity: 0;
   animation: box-bonus 0.6s 2s forwards;
   z-index: 22;
-  left: 10px;
 }
 
 @keyframes box-bonus {
@@ -2105,7 +2253,7 @@ input[type="radio"]:checked {
     height: 10%;
     z-index: 21;
     opacity: 1;
-    background: lightblue;
+    background: #a084e8;
     transform: translateY(-40px);
   }
   100% {
@@ -2113,7 +2261,7 @@ input[type="radio"]:checked {
     height: 100%;
     z-index: 23;
     opacity: 1;
-    background: lightblue;
+    background: #a084e8;
     transform: translateY(0);
   }
 }
@@ -2151,7 +2299,7 @@ input[type="radio"]:checked {
   justify-content: center;
   min-width: 100%;
   min-height: 100vh;
-  background: lightblue;
+  background: #a084e8;
   color: #fff;
   transition: all 0.3s ease;
   scale: 0;
@@ -2285,7 +2433,7 @@ input[type="radio"]:checked {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  scale: 1.2;
+  scale: 1.1;
 }
 
 .play-board .junk {
@@ -2294,11 +2442,11 @@ input[type="radio"]:checked {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  scale: 1.2;
+  scale: 1.1;
 }
 
 .play-board .head {
-  background: rgb(0, 153, 255);
+  background: #68cbff;
   position: relative;
 }
 
@@ -2398,19 +2546,28 @@ input[type="radio"]:checked {
   .board {
     background-size: contain;
   }
-  .text-prolog p mark {
-    font-size: 13px;
+  .pakEdi-prolog {
+    background-position-y: 80%;
   }
   .text-prolog {
-    margin: 0 40px;
-    max-height: 140px;
+    max-height: 203px;
+    height: 100%;
+  }
+  .text-prolog p {
+    font-size: 13px;
+    margin: 20px 40px;
   }
   .imgProlog img {
     width: 150px;
     height: auto;
+    padding-right: 5px;
   }
   .imgProlog .name {
     font-size: 12px;
+  }
+  .next {
+    font-size: 20px;
+    margin: 15px;
   }
   .finish {
     width: 40px;
@@ -2418,6 +2575,18 @@ input[type="radio"]:checked {
   }
   .number-in-board {
     background-size: contain;
+  }
+  .img_winner img {
+    max-width: 200px;
+    margin: 20px 0;
+  }
+  .result_wrapper h2 {
+    font-size: 26px;
+    width: 65px;
+    padding: 3px 0;
+  }
+  .result_wrapper button {
+    font-size: 22px;
   }
   #shakeCard {
     width: 45px;

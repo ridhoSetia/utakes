@@ -1,9 +1,12 @@
 const loading = document.querySelector(".load");
 window.onload = () => {
-  loading.style.display = "none";
+  loading.classList.add("close");
+  setTimeout(() => {
+    loading.style.display = "none";
+  }, 1300);
 };
 window.onbeforeunload = () => {
-  loading.style.display = "block";
+  loading.style.display = "flex";
 };
 
 //-----------Var Inits--------------

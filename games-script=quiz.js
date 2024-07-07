@@ -26,6 +26,11 @@ function lambat() {
   lambat.play();
 }
 
+function waterDrop() {
+  const drop = new Audio("sfx/water-drop.mp3");
+  drop.play();
+}
+
 // Array pertanyaan dan jawaban
 let pertanyaan = [];
 
@@ -390,11 +395,16 @@ function direct() {
     },
   ];
 
-  videoMateri.src = "Apa itu Stunting.mp4";
+  document.querySelector(".video-explain iframe").src =
+    "https://www.youtube.com/embed/HwEka4xz_sc?si=zcAc21B8uHrF4PQC";
   localStorage.setItem("videoExplain", "videoMateri");
 
   editQuestion.style.display = "none";
   createButton.style.display = "none";
+
+  document.querySelector(".video-explain iframe").style.display = "flex";
+  videoMateri.style.display = "none";
+
   localStorage.setItem("directEditQuestion", "none");
   localStorage.setItem("createButton", "none");
   localStorage.setItem("pertanyaan", JSON.stringify(pertanyaan));
@@ -557,9 +567,14 @@ function edit() {
 
   videoMateri.src = "no video.mp4";
   localStorage.setItem("videoExplain", "videoMateri");
-
+  document.querySelector(".pakEdi-prolog").style.display = "none";
+  disableFunctions();
   editQuestion.style.display = "block";
   createButton.style.display = "block";
+
+  document.querySelector(".video-explain iframe").style.display = "none";
+  videoMateri.style.display = "flex";
+
   localStorage.setItem("directEditQuestion", "block");
   localStorage.setItem("createButton", "block");
   localStorage.setItem("pertanyaan", JSON.stringify(pertanyaan));
@@ -569,10 +584,17 @@ function edit() {
 if (localStorage.getItem("directEditQuestion") === "none") {
   editQuestion.style.display = "none";
   createButton.style.display = "none";
-  videoMateri.src = "Apa itu Stunting.mp4";
+  document.querySelector(".video-explain iframe").style.display = "flex";
+  videoMateri.style.display = "none";
+
+  videoMateri.src =
+    "https://www.youtube.com/embed/HwEka4xz_sc?si=zcAc21B8uHrF4PQC";
 } else {
   editQuestion.style.display = "block";
   createButton.style.display = "block";
+  document.querySelector(".video-explain iframe").style.display = "none";
+  videoMateri.style.display = "flex";
+
   videoMateri.src = "no video.mp4";
 }
 
@@ -671,8 +693,13 @@ function tampilPertanyaan() {
 const result = document.getElementById("result");
 document.querySelector("#shakeCard").disabled = true;
 
+let countQuizTrue = 0;
+let countQuizFalse = 0;
+
 // Cek jawaban
 function cekJawaban() {
+  result.style.padding = "25px";
+
   document.querySelector(".showQuestion").disabled = true;
 
   stopTimer(); // Menghentikan timer sebelum memeriksa jawaban
@@ -688,9 +715,51 @@ function cekJawaban() {
   }, 1800);
   if (jawabanUser == pertanyaan[nomorSoal].jawabanBenar) {
     result.innerHTML = '<i class="fa fa-check check-icon"></i> Benar!';
+    countQuizTrue++;
+    console.log(`nilai benar${countQuizTrue}`);
+    setTimeout(() => {
+      function quizTrue() {
+        result.classList.add("on");
+        result.innerHTML = `<img src="img/pakEdi-tutor.png">
+                            <p>Hebat! kalian menjawab <mark>${countQuizTrue}</mark> jawaban benar. Lanjutkan! <button>Lanjut</button></p>`;
+        result.style.padding = "5px 20px";
+        document.querySelector("#result p button").onclick = () => {
+          result.classList.remove("on");
+        };
+      }
+      if (
+        countQuizTrue === 5 ||
+        countQuizTrue === 10 ||
+        countQuizTrue === 20 ||
+        countQuizTrue === 40
+      ) {
+        quizTrue();
+      }
+    }, 2000);
     isTrue();
   } else {
     result.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i> Salah!';
+    countQuizFalse++;
+    console.log(`nilai salah${countQuizFalse}`);
+    setTimeout(() => {
+      function quizFalse() {
+        result.classList.add("on");
+        result.innerHTML = `<img src="img/pakEdi-alert.png">
+                            <p>Hmmm! kalian menjawab <mark>${countQuizFalse}</mark> jawaban salah. Evaluasi! <button>Lanjut</button></p>`;
+        result.style.padding = "5px 20px";
+        document.querySelector("#result p button").onclick = () => {
+          result.classList.remove("on");
+        };
+      }
+      if (
+        countQuizFalse === 5 ||
+        countQuizFalse === 10 ||
+        countQuizFalse === 20 ||
+        countQuizFalse === 40
+      ) {
+        quizFalse();
+      }
+    }, 1900);
     isFalse();
   }
 
@@ -702,6 +771,98 @@ function cekJawaban() {
   hideQuestionBox();
 }
 
+const trueResult = document.querySelector(".result_true");
+const falseResult = document.querySelector(".result_false");
+const valueGame = document.querySelector(".valueGame");
+
+// Fungsi untuk menghasilkan teks acak
+function generateRandomText(characters, length) {
+  let randomText = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    randomText += characters.charAt(randomIndex);
+  }
+  return randomText;
+}
+
+// Fungsi untuk menampilkan teks acak di dalam elemen
+function displayRandomText(element, content) {
+  element.innerHTML = content;
+}
+
+const resultWrapper = document.querySelector(".result_wrapper");
+
+// Fungsi untuk menampilkan hasil permainan
+function displayGameResult() {
+  resultWrapper.style.display = "flex";
+
+  // Fungsi yang dipanggil setiap 3 detik
+  const intervalRandomText1 = setInterval(() => {
+    displayRandomText(
+      trueResult,
+      `<i class="fa-solid fa-square-check"></i> ${generateRandomText(
+        "0123456789",
+        2
+      )}`
+    );
+  }, 50);
+
+  const intervalRandomText2 = setInterval(() => {
+    displayRandomText(
+      falseResult,
+      `<i class="fa-solid fa-square-xmark"></i> ${generateRandomText(
+        "0123456789",
+        2
+      )}`
+    );
+  }, 50);
+
+  const intervalRandomText3 = setInterval(() => {
+    displayRandomText(valueGame, generateRandomText("ABCDEF", 1));
+  }, 50);
+
+  setTimeout(() => {
+    trueResult.style.animation = "true 0.5s";
+    trueResult.innerHTML = `<i class="fa-solid fa-square-check"></i> ${countQuizTrue}`;
+    clearInterval(intervalRandomText1);
+    waterDrop();
+  }, 2000);
+
+  setTimeout(() => {
+    falseResult.style.animation = "true 0.5s";
+    falseResult.innerHTML = `<i class="fa-solid fa-square-xmark"></i> ${countQuizFalse}`;
+    clearInterval(intervalRandomText2);
+    waterDrop();
+  }, 4000);
+
+  setTimeout(() => {
+    valueGame.style.animation = "true 0.5s";
+    if (countQuizTrue > 2 * countQuizFalse) {
+      valueGame.innerHTML = `A+`;
+    } else if (countQuizTrue > countQuizFalse) {
+      valueGame.innerHTML = `A`;
+    } else if (countQuizTrue === countQuizFalse) {
+      valueGame.innerHTML = `B`;
+    } else if (countQuizTrue < countQuizFalse) {
+      valueGame.innerHTML = `C`;
+    }
+    clearInterval(intervalRandomText3);
+    waterDrop();
+  }, 6000);
+  setTimeout(() => {
+    document.querySelector(".img_winner img").style.animation =
+      "imgWinner 0.3s forwards";
+    waterDrop();
+  }, 7000);
+}
+
+// Saat klik pada gameResult, panggil fungsi untuk menampilkan hasil permainan
+const gameResult = document.querySelector(".game-result");
+gameResult.onclick = displayGameResult;
+document.querySelector("#back").onclick = () => {
+  resultWrapper.style.display = "none";
+};
+
 // set semua radio button menjadi unchecked
 var jawaban = document.querySelectorAll("input[type='radio']:checked");
 for (var i = 0; i < jawaban.length; i++) {
@@ -711,7 +872,6 @@ for (var i = 0; i < jawaban.length; i++) {
 let succesInput = document.querySelector(".succesInput");
 
 const inputVideo = document.getElementById("input-file-video");
-const videoElement = document.querySelector(".explain-video");
 
 const removeVideo = document.querySelector(".removeVideo");
 removeVideo.onclick = () => {
@@ -729,7 +889,7 @@ inputVideo.addEventListener("change", () => {
   const file = inputVideo.files[0];
   const videoURL = URL.createObjectURL(file);
 
-  videoElement.src = videoURL;
+  videoMateri.src = videoURL;
 });
 
 function editContent(event) {
